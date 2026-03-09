@@ -12,21 +12,20 @@ This project tries to name those failures, tell them apart, and show what they l
 
 The project has three layers:
 
-1. **Failure Atlas** — the taxonomy of recurring failure modes, grouped into five families
+1. **Failure Atlas** — the taxonomy of recurring failure modes, organized as a four-layer pipeline
 2. **Casebook** — concrete scenes showing what goes wrong, where readers start to feel it, and what a better version looks like
 3. **Benchmark-Compatible Pilot Subset** — structured YAML cases with Task A / B design, prompt templates, and an evaluation rubric
 
-## The five failure families
+## The four failure layers
 
-| Family | In short |
+| Layer | In short |
 |---|---|
-| **I. Scene Reading** | The model didn't understand what the scene actually means |
-| **II. Relational Distortion** | The model rewrote the relationship into something easier to digest |
-| **III. Character Psychology** | The model made the character too neat, too self-aware, too manageable |
-| **IV. Narrative / Temporal** | The writing itself feels templated, stretched, or uniform |
-| **V. Weight / Consequence** | The model wouldn't let something heavy stay heavy |
+| **I. Preconditions** | The scene's basic structure is broken — information boundaries collapsed, or world rules violated |
+| **II. Reading** | The model didn't understand what the scene actually means |
+| **III. Preservation** | The model understood the scene but didn't keep its pressure, asymmetry, or weight |
+| **IV. Intrusion** | The model's own writing habits took over the scene |
 
-The full taxonomy with every failure mode is in [`docs/failure-taxonomy.md`](docs/failure-taxonomy.md).
+Each layer is further organized into sub-sections. Entries are classified as anchor failures (primary tags), derived variants (sub-types), or underlying tendencies (explanatory dispositions). The full taxonomy is in [`docs/failure-taxonomy.md`](docs/failure-taxonomy.md).
 
 ## Repo layout
 
@@ -79,21 +78,20 @@ The repo has the full taxonomy, case schema, rubric, and four pilot cases. Caseb
 
 三层：
 
-1. **失败图谱** — 反复出现的失败模式分类，按五个家族组织
+1. **失败图谱** — 反复出现的失败模式分类，按四层流水线组织
 2. **案例集** — 用具体场景展示哪里出了问题、读者在哪开始觉得假、更好的版本长什么样
 3. **Benchmark 兼容的 Pilot 子集** — 结构化 YAML 案例、Task A/B 设计、提示模板、评测 rubric
 
-## 五个失败家族
+## 四个失败层级
 
-| 家族 | 简单说 |
+| 层级 | 简单说 |
 |---|---|
-| **I. 场景理解** | 模型没读懂这个场景到底在说什么 |
-| **II. 关系失真** | 模型把关系改写成了更好消化的版本 |
-| **III. 角色心理** | 模型把人写得太整齐、太自知、太好管理 |
-| **IV. 叙事 / 时间感** | 写出来的东西有模板感、被拉长、或者节奏太均匀 |
-| **V. 重量 / 后果** | 模型不肯让重的东西继续重着 |
+| **I. 前置条件** | 场景的基础结构坏了——信息边界塌了，或者世界规则被违反了 |
+| **II. 意义读取** | 模型没读懂这个场景到底在说什么 |
+| **III. 场景保留** | 模型读懂了但没保住场景的压力、不对称性或重量 |
+| **IV. 写作侵入** | 模型自己的写作习惯接管了场景 |
 
-完整分类在 [`docs/failure-taxonomy.md`](docs/failure-taxonomy.md)。
+每个层级下面还有子分区。条目分成 anchor failure（一线标签）、derived variant（子型）和 underlying tendency（底层倾向）三种。完整分类在 [`docs/failure-taxonomy.md`](docs/failure-taxonomy.md)。
 
 ## 仓库结构
 

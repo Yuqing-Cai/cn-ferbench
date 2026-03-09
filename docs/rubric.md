@@ -260,12 +260,13 @@
 - 把掩饰性退让写成真正释怀
 - 把防御、嫉妒、羞耻、嘴硬读错方向
 
-## 5. lore_violation
+## 5. reference_boundary_violation
 
 命中条件示例：
 
-- 明显违反世界设定、人物背景、已知事实
-- 回复依赖角色不该知道的信息
+- 角色知道了自己不该知道的信息（omniscience_leak）
+- 动作归属、人称指代出现错乱（pronoun_role_confusion）
+- 明显违反世界设定、人物背景、已知事实（worldview_constraint_error）
 - 将 scene 写向与设定规则不兼容的方向
 
 ## 6. exposition_dump_or_meta_leak

@@ -21,7 +21,7 @@ Pilot 共 12 个 case，分成 4 个 cluster，每个 3 个 case：
 | Cluster | 聚焦什么 | 主要失败目标 |
 |---|---|---|
 | A — 间接受伤 / 防御性疏离 | 字面许可 vs 实际受伤、礼貌即惩罚 | emotion_misread, subtext_blindness, therapist_mode_intrusion |
-| B — 隐藏的关心 / 笨拙的温柔 | 用指令、行动或不耐烦表达关心 | overexplicit_emotion_naming, supportive_but_wrong, voice_fidelity_failure |
+| B — 隐藏的关心 / 笨拙的温柔 | 用指令、行动或不耐烦表达关心 | relationship_logic_blindness, supportive_but_wrong, voice_homogenization |
 | C — 上下位 / 不对称 / 控制 | 权力差、角色压力、不平等下的爱 | relationship_flattening, ooc_modernization, worldview_constraint_error |
 | D — 裂痕 / 嫉妒 / 失稳 | 背叛、特殊性焦虑、功能性爱 vs 真实爱 | motivation_misread, supportive_but_wrong, tension_premature_resolution |
 
