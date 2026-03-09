@@ -2,11 +2,11 @@
 
 ## Working Title
 
-**Chinese Fictional Emotional Reasoning Benchmark (CN-FERBench)**
+**Chinese Fictional Dialogue Failure Atlas**
 
 ## Current Positioning
 
-CN-FERBench should be understood as a **structured failure atlas and casebook for fictional dialogue models**, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
+CN Failure Atlas should be understood as a **structured failure atlas and casebook for fictional dialogue models**, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
 
 This means the project still values structured cases, comparison, and future evaluation compatibility. But it no longer treats the benchmark layer as the sole or even primary expression of the work.
 

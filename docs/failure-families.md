@@ -1,6 +1,6 @@
 # Failure Families
 
-This document defines the five top-level failure families used by CN-FERBench after the atlas-first pivot.
+This document defines the five top-level failure families used by CN Failure Atlas after the atlas-first pivot.
 
 The purpose of the families is not merely organizational. They provide the conceptual structure that keeps the taxonomy coherent.
 

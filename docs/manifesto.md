@@ -1,6 +1,6 @@
 # Manifesto
 
-CN-FERBench is built on a simple observation:
+CN Failure Atlas is built on a simple observation:
 
 Language models do not only fail fictional dialogue by getting facts wrong, missing emotions, or going obviously out of character. They also fail by becoming too smooth, too balanced, too readable, too aesthetically obedient, and too eager to turn difficult scenes into consumable ones.
 

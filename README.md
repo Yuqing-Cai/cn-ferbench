@@ -1,14 +1,14 @@
-[English](#cn-ferbench) | [简体中文](#cn-ferbench-1)
+[English](#chinese-fictional-dialogue-failure-atlas) | [简体中文](#中文虚构--角色扮演对话模型失败图谱)
 
-# CN-FERBench
+# Chinese Fictional Dialogue Failure Atlas
 
-CN-FERBench is a structured **failure atlas and casebook** for fictional / roleplay dialogue models, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
+Chinese Fictional Dialogue Failure Atlas is a structured **failure atlas and casebook** for fictional / roleplay dialogue models, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
 
 It focuses on a class of failures that experienced users of fictional dialogue systems often notice immediately but public evaluation still describes only partially: not just misread emotion or obvious OOC drift, but also more structural forms of falseness such as smoothing asymmetry, over-clarifying desire, softening consequences, or producing polished continuations that feel narratively false.
 
 ## What This Project Covers
 
-CN-FERBench is concerned with fictional dialogue quality in areas such as:
+Chinese Fictional Dialogue Failure Atlas is concerned with fictional dialogue quality in areas such as:
 
 - emotion inference under indirect or masked expression
 - subtext recognition
@@ -136,7 +136,7 @@ The atlas-first internal structure is now in place. The current development focu
 
 ## Intended Use
 
-CN-FERBench is intended for:
+Chinese Fictional Dialogue Failure Atlas is intended for:
 
 - research and discussion around fictional dialogue model failure
 - roleplay / character-chat product analysis
@@ -147,19 +147,19 @@ CN-FERBench is intended for:
 
 If you refer to the project, use:
 
-**CN-FERBench**
+**Chinese Fictional Dialogue Failure Atlas**
 
 ---
 
-# CN-FERBench
+# 中文虚构 / 角色扮演对话模型失败图谱
 
-CN-FERBench 是一个面向虚构 / 角色扮演对话模型的**失败图谱与案例集**，并保留了一组**兼容 benchmark 方向的 pilot 子集**作为形式化骨架。
+《中文虚构 / 角色扮演对话模型失败图谱》是一个面向虚构 / 角色扮演对话模型的**失败图谱与案例集**，并保留了一组**兼容 benchmark 方向的 pilot 子集**作为形式化骨架。
 
 它关注的是一类经验用户很容易感觉到、但公开评测语言仍然描述得不够充分的失败：不仅包括情绪误读或明显 OOC，也包括更结构性的假感，例如把关系倾斜偷偷写平、把欲望过早写明、把后果软化、或者生成表面成熟但整体上叙事失真的续写。
 
 ## 项目关注什么
 
-CN-FERBench 主要关注虚构对话中的这些问题：
+《中文虚构 / 角色扮演对话模型失败图谱》主要关注虚构对话中的这些问题：
 
 - 间接表达 / 掩饰表达下的情绪识别
 - 潜台词识别
@@ -289,7 +289,7 @@ CN-FERBench 主要关注虚构对话中的这些问题：
 
 ## 适用场景
 
-CN-FERBench 适合用于：
+《中文虚构 / 角色扮演对话模型失败图谱》适合用于：
 
 - 虚构对话模型失败分析
 - roleplay / character-chat 产品讨论
@@ -300,4 +300,6 @@ CN-FERBench 适合用于：
 
 如需引用，请使用：
 
-**CN-FERBench**
+**中文虚构 / 角色扮演对话模型失败图谱**
+
+English title: **Chinese Fictional Dialogue Failure Atlas**

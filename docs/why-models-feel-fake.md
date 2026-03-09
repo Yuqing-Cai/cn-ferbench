@@ -28,7 +28,7 @@ This repo exists partly to provide that vocabulary.
 
 ## Working claim
 
-One of the central claims behind CN-FERBench is:
+One of the central claims behind CN Failure Atlas is:
 
 > advanced models do not only fail by misunderstanding the scene; they also fail by quietly rewriting it into a more readable, balanced, polished, and emotionally manageable version of itself.
 

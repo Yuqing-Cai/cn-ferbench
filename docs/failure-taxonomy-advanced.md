@@ -1,6 +1,6 @@
 # Failure Taxonomy — Advanced
 
-This document defines the more advanced failure tags for CN-FERBench.
+This document defines the more advanced failure tags for CN Failure Atlas.
 
 These failures are often easier for experienced users to feel than for evaluators to score cleanly. They matter because they capture how advanced models can remain locally plausible while becoming globally false.
 

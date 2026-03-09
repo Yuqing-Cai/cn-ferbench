@@ -2,7 +2,7 @@
 
 This document explains how curated casebook entries should be selected and written.
 
-The casebook is the demonstrative layer of CN-FERBench. Its purpose is to make failure structures visible and discussable.
+The casebook is the demonstrative layer of CN Failure Atlas. Its purpose is to make failure structures visible and discussable.
 
 ## Why a Casebook Layer Exists
 

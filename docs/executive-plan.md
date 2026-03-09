@@ -2,7 +2,7 @@
 
 ## Project Direction
 
-CN-FERBench should be repositioned as a **structured failure atlas and casebook for fictional dialogue models**, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
+CN Failure Atlas should be repositioned as a **structured failure atlas and casebook for fictional dialogue models**, with a **benchmark-compatible pilot subset** retained as formal scaffolding.
 
 This is not a retreat from rigor. It is a clearer fit for the actual problem the project is trying to surface.
 
@@ -161,7 +161,7 @@ This should be treated as a stable design rule, not a one-off formatting choice.
 ## Recommended Repository Structure
 
 ```text
-cn-ferbench/
+cn-failure-atlas/
 ├── README.md
 ├── docs/
 │   ├── manifesto.md
@@ -261,7 +261,7 @@ The repo should remain disciplined, but it should not pretend that every subtle 
 
 ## Intended Outcome
 
-At the end of this refactor, CN-FERBench should read as:
+At the end of this refactor, CN Failure Atlas should read as:
 
 - conceptually clear
 - structurally original

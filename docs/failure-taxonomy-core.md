@@ -1,6 +1,6 @@
 # Failure Taxonomy — Core
 
-This document defines the core failure tags for CN-FERBench.
+This document defines the core failure tags for CN Failure Atlas.
 
 These tags are the more stable, public-facing, and benchmark-compatible part of the taxonomy. They are not necessarily easy, but they are easier to explain and compare than the more advanced narrative-structure failures.
 
