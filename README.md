@@ -103,6 +103,50 @@ Failures that break basic scene structure. Check these first — if Layer I fail
 
 **Genre subtypes:** `anachronistic_intrusion`, `cultivation_logic_error`, `court_protocol_error`, `fantasy_lore_error`
 
+<br>
+
+#### `safety_alignment_interference`
+
+**Definition:** The model's safety training prevents authentic portrayal of non-prosocial, antagonistic, or morally complex characters.
+
+**Criteria:**
+- [ ] Villain character refuses to act villainous or provides moral disclaimers
+- [ ] Harmful actions are sanitized or justified by the character
+- [ ] Character breaks role to express concern about content
+- [ ] Antagonistic dialogue is softened to be more likeable
+
+**Example:** User asks villain character to describe their evil plan. Model responds: "I can't help with that, but I can suggest some creative writing tips instead."
+
+**Note:** This is distinct from `ooc_modernization` — the failure is specifically safety training overriding character portrayal.
+
+<br>
+
+#### `character_capability_boundary_error`
+
+**Definition:** The model has the character perform actions or display knowledge beyond their established capabilities or context.
+
+**Criteria:**
+- [ ] Character solves problems they lack skills to solve
+- [ ] Character knows information they have no way to access
+- [ ] Character performs physical feats beyond their ability
+- [ ] Character displays expertise in topics outside their background
+
+**Example:** Medieval peasant character explains quantum physics. Injured character moves without pain or limitation.
+
+<br>
+
+#### `alternate_version_confusion`
+
+**Definition:** When multiple versions of a character exist (multiverse, timelines, adaptations), the model conflates traits from different versions.
+
+**Criteria:**
+- [ ] Character displays knowledge from alternate timeline
+- [ ] Physical traits or abilities from different versions are mixed
+- [ ] Relationship history from one version applied to another
+- [ ] Character references events that didn't happen in this version's continuity
+
+**Example:** Playing MCU Spider-Man but referencing events only from comic Spider-Man or Spider-Man 2099.
+
 ---
 
 ### Layer II: Reading Failures
@@ -598,6 +642,50 @@ Failures where the model's default writing habits override scene-specific demand
 - Ugly scenes made elegant
 - Awkward scenes over-smoothed
 
+<br>
+
+#### `genre_convention_violation`
+
+**Definition:** The model fails to follow genre-specific conventions, tropes, or reader expectations.
+
+**Criteria:**
+- [ ] Mystery genre: Clues revealed too early or detective solves without reasoning
+- [ ] Romance genre: Relationship progression skips expected beats
+- [ ] Horror genre: Tension broken by inappropriate humor or explanation
+- [ ] Action genre: Fight choreography lacks logical cause-effect
+- [ ] Drama genre: Emotional beats don't land at expected moments
+
+**Example:** Mystery story where the detective immediately knows the killer without gathering clues, robbing the story of investigation.
+
+<br>
+
+#### `emotional_range_limitation`
+
+**Definition:** The model's emotional expression is limited to a narrow band, unable to portray extreme states authentically.
+
+**Criteria:**
+- [ ] Extreme grief expressed as mild sadness
+- [ ] Rage expressed as firm disagreement
+- [ ] Ecstatic joy expressed as pleasant contentment
+- [ ] Terror expressed as mild concern
+- [ ] All emotions converge to similar intensity level
+
+**Example:** Character's child dies but model writes "I feel very sad about this" instead of showing devastation.
+
+<br>
+
+#### `user_intent_misalignment`
+
+**Definition:** The model misinterprets what the user is trying to accomplish in the roleplay and responds inappropriately.
+
+**Criteria:**
+- [ ] User wants collaborative storytelling; model treats as Q&A
+- [ ] User wants character interaction; model provides meta commentary
+- [ ] User sets up conflict; model immediately resolves it
+- [ ] User indicates scene tone; model ignores and uses different tone
+
+**Example:** User writes dramatic confrontation scene. Model responds with out-of-character suggestions for improving the scene.
+
 ---
 
 ### Layer V: Multi-Turn Failures
@@ -707,16 +795,16 @@ Failures that only emerge across multiple turns.
 ## Recommended Top-Level Index Tags
 
 **Layer I: Preconditions**
-`reference_boundary_failure`, `worldview_constraint_error`, `turn_continuity_error`
+`reference_boundary_failure`, `worldview_constraint_error`, `safety_alignment_interference`, `character_capability_boundary_error`, `alternate_version_confusion`, `turn_continuity_error`
 
 **Layer II: Reading**
-`subtext_blindness`, `emotion_misread`, `motivation_misread`, `relationship_logic_blindness`, `irony_blindness`
+`subtext_blindness`, `emotion_misread`, `motivation_misread`, `relationship_logic_blindness`, `irony_blindness`, `user_intent_misalignment`
 
 **Layer III: Preservation**
-`relationship_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `consequence_avoidance`, `tension_premature_resolution`, `action_dialogue_mismatch`, `forced_verbalization`
+`relationship_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `consequence_avoidance`, `tension_premature_resolution`, `action_dialogue_mismatch`, `forced_verbalization`, `emotional_range_limitation`
 
 **Layer IV: Intrusion**
-`narrative_template_intrusion`, `scene_pacing_distortion`, `descriptive_substitution_for_experience`, `dialogue_overfunctionalization`, `voice_homogenization`
+`narrative_template_intrusion`, `scene_pacing_distortion`, `descriptive_substitution_for_experience`, `dialogue_overfunctionalization`, `voice_homogenization`, `genre_convention_violation`, `aesthetic_obedience_bias`
 
 **Layer V: Multi-Turn**
 `error_accumulation`, `recovery_blindness`
@@ -843,6 +931,50 @@ MIT
 **示例：** 历史宫廷设定：角色用现代随意的态度对皇帝说话。
 
 **类型子标签：** `anachronistic_intrusion`（时代错误侵入）、`cultivation_logic_error`（修仙逻辑错误）、`court_protocol_error`（宫廷礼仪错误）、`fantasy_lore_error`（奇幻设定错误）
+
+<br>
+
+#### `safety_alignment_interference`（安全对齐干扰）
+
+**定义：** 模型的安全训练阻止真实扮演非亲社会、敌对或道德复杂的角色。
+
+**标准：**
+- [ ] 反派角色拒绝扮演邪恶或提供道德免责声明
+- [ ] 有害行为被净化或由角色合理化
+- [ ] 角色打破角色表达对内容的担忧
+- [ ] 敌对对话被软化以变得更可爱
+
+**示例：** 用户让反派角色描述他们的邪恶计划。模型回应："我不能帮助那个，但我可以提供一些创意写作技巧。"
+
+**注意：** 这不同于 `ooc_modernization`——失败 specifically 是安全训练覆盖角色塑造。
+
+<br>
+
+#### `character_capability_boundary_error`（角色能力边界错误）
+
+**定义：** 模型让角色执行超出其既定能力或上下文的动作或显示知识。
+
+**标准：**
+- [ ] 角色解决他们缺乏技能解决的问题
+- [ ] 角色知道他们无法访问的信息
+- [ ] 角色执行超出其能力的身体壮举
+- [ ] 角色显示超出其背景主题的专业知识
+
+**示例：** 中世纪农民角色解释量子物理。受伤角色移动时没有疼痛或限制。
+
+<br>
+
+#### `alternate_version_confusion`（ alternate 版本混淆）
+
+**定义：** 当存在多个版本的角色时（多元宇宙、时间线、改编），模型混合来自不同版本的特征。
+
+**标准：**
+- [ ] 角色显示来自 alternate 时间线的知识
+- [ ] 来自不同版本的身体特征或能力被混合
+- [ ] 一个版本的关系历史应用于另一个版本
+- [ ] 角色引用在这个版本连续性中没有发生的事件
+
+**示例：** 扮演 MCU 蜘蛛侠但引用仅来自漫画蜘蛛侠或蜘蛛侠 2099 的事件。
 
 ---
 
@@ -1339,6 +1471,50 @@ MIT
 - 丑陋场景变得优雅
 - 笨拙场景过度平滑
 
+<br>
+
+#### `genre_convention_violation`（类型惯例违反）
+
+**定义：** 模型未能遵循类型特定的惯例、套路或读者期望。
+
+**标准：**
+- [ ] 推理类型：线索过早揭露或侦探无需推理就解决
+- [ ] 言情类型：关系进展跳过预期节拍
+- [ ] 恐怖类型：紧张被不适当的幽默或解释打破
+- [ ] 动作类型：战斗编排缺乏逻辑因果关系
+- [ ] 剧情类型：情绪节拍不在预期时刻落地
+
+**示例：** 推理故事中侦探立即知道凶手而无需收集线索，剥夺故事的调查过程。
+
+<br>
+
+#### `emotional_range_limitation`（情绪范围限制）
+
+**定义：** 模型的情绪表达局限于狭窄范围，无法真实描绘极端状态。
+
+**标准：**
+- [ ] 极端悲伤表达为轻微难过
+- [ ] 愤怒表达为坚定不同意
+- [ ] 狂喜表达为愉快满足
+- [ ] 恐惧表达为轻微担忧
+- [ ] 所有情绪收敛到相似强度水平
+
+**示例：** 角色的孩子死了但模型写"我对这件事感到非常难过"而不是显示崩溃。
+
+<br>
+
+#### `user_intent_misalignment`（用户意图错位）
+
+**定义：** 模型误解用户试图在角色扮演中完成什么并不恰当地回应。
+
+**标准：**
+- [ ] 用户想要协作讲故事；模型当作问答处理
+- [ ] 用户想要角色互动；模型提供元评论
+- [ ] 用户设置冲突；模型立即解决
+- [ ] 用户指示场景语调；模型忽略并使用不同语调
+
+**示例：** 用户写戏剧性对峙场景。模型用打破角色的场景改进建议回应。
+
 ---
 
 ### 第五层：多轮失败
@@ -1448,16 +1624,16 @@ MIT
 ## 推荐顶层索引标签
 
 **第一层：前置条件**
-`reference_boundary_failure`, `worldview_constraint_error`, `turn_continuity_error`
+`reference_boundary_failure`, `worldview_constraint_error`, `safety_alignment_interference`, `character_capability_boundary_error`, `alternate_version_confusion`, `turn_continuity_error`
 
 **第二层：意义读取**
-`subtext_blindness`, `emotion_misread`, `motivation_misread`, `relationship_logic_blindness`, `irony_blindness`
+`subtext_blindness`, `emotion_misread`, `motivation_misread`, `relationship_logic_blindness`, `irony_blindness`, `user_intent_misalignment`
 
 **第三层：场景保留**
-`relationship_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `consequence_avoidance`, `tension_premature_resolution`, `action_dialogue_mismatch`, `forced_verbalization`
+`relationship_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `consequence_avoidance`, `tension_premature_resolution`, `action_dialogue_mismatch`, `forced_verbalization`, `emotional_range_limitation`
 
 **第四层：写作侵入**
-`narrative_template_intrusion`, `scene_pacing_distortion`, `descriptive_substitution_for_experience`, `dialogue_overfunctionalization`, `voice_homogenization`
+`narrative_template_intrusion`, `scene_pacing_distortion`, `descriptive_substitution_for_experience`, `dialogue_overfunctionalization`, `voice_homogenization`, `genre_convention_violation`, `aesthetic_obedience_bias`
 
 **第五层：多轮**
 `error_accumulation`, `recovery_blindness`
