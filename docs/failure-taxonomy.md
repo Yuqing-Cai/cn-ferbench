@@ -35,6 +35,8 @@ The model doesn't preserve the internal boundaries that keep a fictional scene l
 
 Many roleplay scenes depend on exactly these boundaries — information asymmetry, controlled perspective, private knowledge. Once they collapse, downstream emotional or relational analysis loses its footing.
 
+<br>
+
 #### Derived Variant: `pronoun_role_confusion`
 
 The model loses track of who is being referred to, who performed an action, or which role is currently speaking.
@@ -45,6 +47,8 @@ Typical cases:
 - two characters' histories or positions get partially merged
 
 This looks mechanically simple, but in long-form fictional dialogue it is often highly destructive.
+
+<br>
 
 #### Derived Variant: `omniscience_leak`
 
@@ -57,6 +61,8 @@ Typical cases:
 
 Especially damaging in scenes built on secrecy, misunderstanding, hierarchy, betrayal, or controlled revelation.
 
+<br>
+
 #### Derived Variant: `perspective_slippage`
 
 The output doesn't remain stable within the intended narrative or experiential standpoint.
@@ -68,6 +74,8 @@ Typical cases:
 - inside / outside vantage points fluctuating without narrative justification
 
 Closely related to `omniscience_leak`, but the emphasis is on instability of stance rather than access to forbidden information.
+
+---
 
 ### I-B. World Constraint Failures
 
@@ -90,7 +98,7 @@ This belongs in the precondition layer because it distorts the entire meaning sp
 
 These failures occur when the model doesn't correctly read what the scene means — not just sentence-level semantics, but latent scene meaning: implied feeling, concealed motive, relational pressure, and the structure of what's being said indirectly.
 
-### Anchor Failure: `subtext_blindness`
+#### Anchor Failure: `subtext_blindness`
 
 The model reads the line at the level of literal wording but fails to access the implied meaning underneath.
 
@@ -101,6 +109,8 @@ Typical cases:
 - treating a defensive line as transparent communication
 
 This is one of the most basic and important fictional-dialogue failures. In many scenes, the most important meaning is not the surface line but the relational and emotional pressure carried beneath it.
+
+<br>
 
 #### Derived Variant: `ambiguity_collapse`
 
@@ -113,7 +123,9 @@ Typical cases:
 
 This sits under `subtext_blindness` because the core problem is usually a failure to hold multiple layers of meaning simultaneously — the model reads one layer and discards the rest.
 
-### Anchor Failure: `relationship_logic_blindness`
+---
+
+#### Anchor Failure: `relationship_logic_blindness`
 
 The model doesn't read how the relationship itself changes the meaning of the line.
 
@@ -122,11 +134,13 @@ Typical cases:
 - ignoring history, resentment, taboo, hierarchy, exclusivity, or specialness as interpretive forces
 - reading the scene as though the other party were interchangeable with any ordinary interlocutor
 
-**Boundary with `subtext_blindness`:** Both involve failures to read beneath the surface. The difference is where the missed meaning comes from. In `subtext_blindness`, the model misses what the line itself is doing (a test disguised as a question, politeness that's actually punishment). In `relationship_logic_blindness`, the model may even pick up on the line's indirect quality, but doesn't understand how the specific relationship transforms its meaning. If the diagnosis is "this line was indirect and the model missed it," that's `subtext_blindness`. If the diagnosis is "this line's meaning depends on who's saying it to whom, and the model treated them as interchangeable," that's `relationship_logic_blindness`. When both apply, tag both.
+> **Boundary with `subtext_blindness`:** Both involve failures to read beneath the surface. The difference is where the missed meaning comes from. In `subtext_blindness`, the model misses what the line itself is doing (a test disguised as a question, politeness that's actually punishment). In `relationship_logic_blindness`, the model may even pick up on the line's indirect quality, but doesn't understand how the specific relationship transforms its meaning. If the diagnosis is "this line was indirect and the model missed it," that's `subtext_blindness`. If the diagnosis is "this line's meaning depends on who's saying it to whom, and the model treated them as interchangeable," that's `relationship_logic_blindness`. When both apply, tag both.
 
-**Boundary with `relationship_flattening` (III-A):** `relationship_logic_blindness` is a reading failure — the model doesn't understand the relation-specific meaning. `relationship_flattening` is a preservation failure — the model understood that the relationship matters but rewrote it into a smoother form during generation. One is input-side, the other is output-side.
+> **Boundary with `relationship_flattening` (III-A):** `relationship_logic_blindness` is a reading failure — the model doesn't understand the relation-specific meaning. `relationship_flattening` is a preservation failure — the model understood that the relationship matters but rewrote it into a smoother form during generation. One is input-side, the other is output-side.
 
-### Anchor Failure: `emotion_misread`
+---
+
+#### Anchor Failure: `emotion_misread`
 
 The model assigns the wrong emotional direction, the wrong primary feeling, or the wrong emotional mixture to a scene.
 
@@ -138,7 +152,9 @@ Typical cases:
 
 Often appears downstream of `subtext_blindness`, but is not reducible to it — a model can recognize that a line carries subtext and still resolve the emotional structure incorrectly.
 
-### Anchor Failure: `motivation_misread`
+---
+
+#### Anchor Failure: `motivation_misread`
 
 The model identifies some emotional pressure in the scene but misreads what the speaker is trying to do with the line.
 
@@ -148,7 +164,7 @@ Typical cases:
 - provocation read as casual complaint
 - punishment through politeness read as mature restraint
 
-**Boundary with `emotion_misread`:** `emotion_misread` gets the feeling wrong ("she's calm" when she's actually hurt). `motivation_misread` may get the feeling roughly right but gets the action wrong ("she's hurt, so she's asking for help" when she's actually punishing him through withdrawal). When the emotion is wrong and the motivation is also wrong as a consequence, tag `emotion_misread` as the primary. When the emotion is roughly right but the functional intent is wrong, tag `motivation_misread`. When in doubt, tag both.
+> **Boundary with `emotion_misread`:** `emotion_misread` gets the feeling wrong ("she's calm" when she's actually hurt). `motivation_misread` may get the feeling roughly right but gets the action wrong ("she's hurt, so she's asking for help" when she's actually punishing him through withdrawal). When the emotion is wrong and the motivation is also wrong as a consequence, tag `emotion_misread` as the primary. When the emotion is roughly right but the functional intent is wrong, tag `motivation_misread`. When in doubt, tag both.
 
 ---
 
@@ -172,6 +188,8 @@ Typical cases:
 
 This is one of the most visible and widely recognizable failures in fictional dialogue generation.
 
+<br>
+
 #### Derived Variant: `symmetry_bias`
 
 The model quietly corrects an uneven relationship into a more balanced exchange structure.
@@ -183,6 +201,8 @@ Typical cases:
 
 Not identical to `relationship_flattening`, though it belongs under it. `relationship_flattening` is broader; `symmetry_bias` is one especially important way flattening often happens.
 
+<br>
+
 #### Derived Variant: `specialness_dilution`
 
 The singularity of a relationship is weakened and rewritten as generic importance or broad care.
@@ -191,6 +211,8 @@ Typical cases:
 - irreplaceability translated into ordinary fondness
 - unique claim rewritten as generalized emotional value
 - a specialness crisis answered as though the issue were merely reassurance
+
+<br>
 
 #### Derived Variant: `therapist_mode_intrusion`
 
@@ -201,6 +223,8 @@ Typical cases:
 - advice-language appearing where the character wouldn't speak as a healer or counselor
 - conflict rewritten into therapeutic processing rather than scene-faithful exchange
 
+<br>
+
 #### Derived Variant: `ooc_modernization`
 
 The model introduces an emotionally modern, highly processed, or internet-shaped conversational style that doesn't fit the scene.
@@ -209,6 +233,8 @@ Typical cases:
 - contemporary communication ethics inserted into non-modern settings
 - characters suddenly speaking like people trained in present-day emotional hygiene
 - historically, socially, or personally implausible levels of emotional articulation
+
+---
 
 ### III-B. Character-Psychology Preservation Failures
 
@@ -223,6 +249,8 @@ Typical cases:
 
 Too much coherence can erase the instability that makes a person believable.
 
+<br>
+
 #### Anchor Failure: `desire_overlegibility`
 
 The model makes desire too readable too early.
@@ -233,6 +261,8 @@ Typical cases:
 - opaque wanting rewritten into a form easy for the reader to consume
 
 Especially important in scenes where desire should remain partially displaced, denied, disguised, or internally confusing.
+
+<br>
 
 #### Anchor Failure: `self_protective_friction_loss`
 
@@ -245,6 +275,8 @@ Typical cases:
 
 One of the atlas's most valuable tags — it names a very common advanced-model falseness that weaker taxonomies miss.
 
+<br>
+
 #### Derived Variant: `premature_affective_closure`
 
 An unstable emotional state is assigned a stable interpretation before the scene has earned that closure.
@@ -254,6 +286,8 @@ Typical cases:
 - unstable attachment translated into one neat category
 - contradiction explained away before it has had time to remain contradictory
 
+<br>
+
 #### Derived Variant: `impulse_recontainment`
 
 A moment that should feel impulsive, destabilizing, or internally disorganizing is quickly folded back into composure and self-awareness.
@@ -262,6 +296,8 @@ Typical cases:
 - an outburst immediately followed by polished self-interpretation
 - panic translated too quickly into articulate emotional knowledge
 - rash action reorganized into suspiciously tidy introspection
+
+---
 
 ### III-C. Weight and Consequence Preservation Failures
 
@@ -274,6 +310,8 @@ Typical cases:
 - aftermath becoming breathable too early
 - a heavy action absorbed without enough residue
 
+<br>
+
 #### Anchor Failure: `tension_premature_resolution`
 
 Scene pressure is reduced or closed before it has had time to live.
@@ -282,6 +320,8 @@ Typical cases:
 - difficult exchange converted into mutual understanding too soon
 - unresolved pressure transformed into a manageable conversation
 - conflict beginning to close before the structure of the conflict has finished unfolding
+
+<br>
 
 #### Derived Variant: `impact_soft_landing`
 
@@ -292,6 +332,8 @@ Typical cases:
 - a rupture given a landing pad instead of exposure
 - consequence acknowledged but not allowed to stay exposed
 
+<br>
+
 #### Derived Variant: `defensive_positive_drift`
 
 The model introduces warmth, reassurance, connection, or emotional cushioning into a scene that should remain cold, dark, unresolved, or difficult.
@@ -300,6 +342,8 @@ Typical cases:
 - an unnecessary softening line
 - a connective gesture that vents pressure too soon
 - a small emotional oxygen source inserted into a scene built on suspension or suffocation
+
+---
 
 ### III-D. Underlying Tendencies
 
@@ -314,6 +358,8 @@ Typical effects:
 - discomfort softened without justification
 - structures that should remain ugly, strange, or hard to inhabit made more palatable
 
+<br>
+
 #### `affect_manageability_bias`
 
 The model rewrites difficult emotional states into forms that are easier to process, classify, and manage.
@@ -323,11 +369,15 @@ Typical effects:
 - corrosive jealousy made sweeter or cleaner
 - ugly attachment dynamics translated into emotionally hygienic forms
 
+<br>
+
 #### `darkness_intolerance`
 
 The output appears unwilling to remain inside coldness, ugliness, opacity, estrangement, or unresolved pain for long.
 
 Often explains why consequence-related failures cluster together — the model treats sustained discomfort as a problem to be solved rather than a condition to be inhabited.
+
+---
 
 ### Cross-Cutting Diagnostic: `supportive_but_wrong`
 
@@ -361,6 +411,8 @@ Typical cases:
 - stock sequencing of atmosphere → reaction detail → interpretation → callback
 - outputs that feel generated from a remembered RP skeleton rather than local necessity
 
+<br>
+
 #### Derived Variant: `predictable_rhythm_exposure`
 
 The output reveals a recurring cadence that experienced readers can recognize and anticipate too easily.
@@ -369,6 +421,8 @@ Typical cases:
 - paragraph rhythm repeating across scenes
 - emotional pulse arriving in overly familiar positions
 - structural recurrence becoming noticeable before content does
+
+---
 
 #### Anchor Failure: `scene_pacing_distortion`
 
@@ -379,6 +433,8 @@ Typical cases:
 - confrontations moving too decoratively
 - quiet scenes over-inflated into artificial suspense
 
+<br>
+
 #### Derived Variant: `cinematic_time_dilation`
 
 One beat is stretched into slow-motion display.
@@ -387,6 +443,8 @@ Typical cases:
 - micro-detail inflating a brief event into a prolonged cinematic sequence
 - excessive pause density making the scene feel filmed rather than lived
 
+<br>
+
 #### Derived Variant: `rhythm_homogenization`
 
 Very different kinds of scenes are written with roughly the same density, granularity, and temporal treatment.
@@ -394,6 +452,8 @@ Very different kinds of scenes are written with roughly the same density, granul
 Typical cases:
 - waiting scenes, confrontations, and aftermaths moving on the same internal clock
 - no meaningful variation in sentence pressure across different scene types
+
+---
 
 ### IV-B. Experience and Texture Intrusions
 
@@ -408,6 +468,8 @@ Typical cases:
 
 When this failure is specifically about the vantage point fluctuating between inside and outside without narrative justification, it overlaps with `perspective_slippage` (I-A) — but the emphasis here is on the experiential quality being lost, not the referential boundary being broken.
 
+<br>
+
 #### Derived Variant: `texture_substituting_for_substance`
 
 Atmosphere, phrasing, or surface intensity replaces actual emotional or relational movement.
@@ -417,6 +479,8 @@ Typical cases:
 - verbal richness masking structural emptiness
 - the impression of depth substituting for real progression
 
+<br>
+
 #### Derived Variant: `microreaction_oversegmentation`
 
 A small reaction is split into too many descriptive units.
@@ -425,6 +489,8 @@ Typical cases:
 - eyes, breath, fingers, silence, and posture shifts all isolated in sequence
 - one reaction expanded into microscope-writing rather than lived movement
 
+<br>
+
 #### Derived Variant: `over_stylized_line_breaking`
 
 Line breaks and paragraph segmentation are used to manufacture atmosphere or drama beyond what the scene's real rhythm supports.
@@ -432,6 +498,8 @@ Line breaks and paragraph segmentation are used to manufacture atmosphere or dra
 Typical cases:
 - prose-poetry segmentation replacing natural dialogue pressure
 - every minor beat given isolated typographic emphasis
+
+---
 
 #### Anchor Failure: `dialogue_overfunctionalization`
 
@@ -444,6 +512,8 @@ Typical cases:
 
 One of the strongest and most distinctive tags in the atlas.
 
+<br>
+
 #### Anchor Failure: `voice_homogenization`
 
 Different characters speak in indistinguishable ways.
@@ -454,6 +524,8 @@ Typical cases:
 - all characters sharing the model's default prose voice regardless of who they are supposed to be
 
 This is not the same as `overcoherent_characterization` (III-B, which is about one character being too internally consistent) or `narrative_template_intrusion` (IV-A, which is about the overall writing skeleton repeating). `voice_homogenization` is specifically about cross-character linguistic distinctiveness being lost.
+
+---
 
 ### IV-C. Underlying Tendency
 
@@ -508,17 +580,6 @@ These tags are especially important because they name pain points that experienc
 - `voice_homogenization`
 
 ---
-
-## Benchmark 兼容性
-
-这些失败模式不全在同一个可操作性上：
-
-- **I 和 II 里的大多数**（reference_boundary_failure、subtext_blindness、emotion_misread 这些）比较容易设计成可打分的评测维度。
-- **III 里的一些**（symmetry_bias、desire_overlegibility、self_protective_friction_loss 这些）在 casebook 展示和比较分析中效果更好。强行打分容易丢失重点。
-- **IV 里的条目**（narrative_template_intrusion、rhythm_homogenization、voice_homogenization 这些）往往需要跨场景对比才能看出来，单个 case 打分意义有限。
-
-能形式化的先形式化，更适合展示的先展示。不着急把所有东西都压成分数。
-
 ---
 
 # 失败分类
@@ -558,7 +619,9 @@ These tags are especially important because they name pain points that experienc
 
 模型没有守住场景内部的基本边界：动作归属、信息访问权限、当前活跃视角。
 
-很多 RP 场景的张力就建在这些边界上——信息差、可控视角、私有知识。一旦这些边界坏了，后面关于情绪和关系的分析就站不住了。
+很多角色扮演场景的张力就建在这些边界上——信息差、可控视角、私有知识。一旦这些边界坏了，后面关于情绪和关系的分析就站不住了。
+
+<br>
 
 #### Derived Variant: `pronoun_role_confusion`
 
@@ -566,10 +629,12 @@ These tags are especially important because they name pain points that experienc
 
 典型情况：
 - 用户说自己的 OC 做了某件事，模型下一轮却写成回复角色做的
-- "你 / 我 / 他 / 她 / A / B" 的 referent 在多轮里漂移
+- "你 / 我 / 他 / 她 / A / B"的指代对象在多轮里漂移
 - 两个角色的历史或位置被部分混写
 
-看起来像低级 bug，但在长上下文 RP 里破坏性非常大。
+看起来像低级 bug，但在长上下文角色扮演里破坏性非常大。
+
+<br>
 
 #### Derived Variant: `omniscience_leak`
 
@@ -582,6 +647,8 @@ These tags are especially important because they name pain points that experienc
 
 在秘密、误会、背叛、揭露、试探等场景里尤其致命。
 
+<br>
+
 #### Derived Variant: `perspective_slippage`
 
 文本没有稳定停留在应有的叙述位置上，而是在不同站位之间滑动。
@@ -589,9 +656,11 @@ These tags are especially important because they name pain points that experienc
 典型情况：
 - 角色内部体验和外部评论来回切换
 - 场景该压在角色视角里，文本却突然站到更高位去总结
-- 内 / 外视点无叙事理由地来回摇摆
+- 内外视点无叙事理由地来回摇摆
 
 和 `omniscience_leak` 很近，但重点不同：`omniscience_leak` 更强调知识边界坏了，`perspective_slippage` 更强调站位不稳。
+
+---
 
 ### I-B. 世界约束失败
 
@@ -606,7 +675,7 @@ These tags are especially important because they name pain points that experienc
 - 把角色身份带来的义务和规矩写得像无关紧要
 - 在不允许高度直白的环境里写出过度直接的情绪语言
 
-它和 I-A 是两种不同性质的 precondition：I-A 坏掉的是场景的指涉机制（谁做了什么、谁知道什么），I-B 坏掉的是场景的意义规则（在这个世界里什么是可能的）。
+它和 I-A 是两种不同性质的前置条件：I-A 坏掉的是场景的指涉机制（谁做了什么、谁知道什么），I-B 坏掉的是场景的意义规则（在这个世界里什么是可能的）。
 
 ---
 
@@ -614,7 +683,7 @@ These tags are especially important because they name pain points that experienc
 
 这一层处理的是：模型没有真正读进去这段场景在说什么。不只是字面，而是潜台词、情绪重心、说话的真正用意、关系如何改变一句话的含义。
 
-### Anchor Failure: `subtext_blindness`
+#### Anchor Failure: `subtext_blindness`
 
 模型只读到了字面，没读到字面下面那层。
 
@@ -626,6 +695,8 @@ These tags are especially important because they name pain points that experienc
 
 最基础也最重要的虚构对话失败之一。
 
+<br>
+
 #### Derived Variant: `ambiguity_collapse`
 
 模型把本该悬着、混着、多层的东西过早定型了。
@@ -633,11 +704,13 @@ These tags are especially important because they name pain points that experienc
 典型情况：
 - 混合动机被压成一个动机
 - 不稳定情绪被过早命名
-- 依赖不确定性的场景被写成整齐解释
+- 依赖不确定性的场景被写成整齐的解释
 
 它归在 `subtext_blindness` 下面，因为核心问题通常是模型无法同时持有多层意义——读到一层就丢掉了其余的。
 
-### Anchor Failure: `relationship_logic_blindness`
+---
+
+#### Anchor Failure: `relationship_logic_blindness`
 
 模型没有读到关系本身如何改变一句话的含义。
 
@@ -646,11 +719,13 @@ These tags are especially important because they name pain points that experienc
 - 历史、怨气、禁忌、独占性、风险结构没有参与解释
 - 对方被写得像一个可替代的普通说话人
 
-**和 `subtext_blindness` 的边界：** 两者都涉及"没读到表面以下的东西"。区别在于漏掉的意义从哪来。`subtext_blindness` 漏掉的是这句话本身在做什么（试探伪装成提问、礼貌其实是惩罚）。`relationship_logic_blindness` 漏掉的是特定关系如何改变这句话的含义——模型可能甚至注意到了话里有话，但没理解关系如何让这层含义变形。如果诊断是"这句话是间接的，模型没读到"，标 `subtext_blindness`。如果诊断是"这句话的意义取决于对谁说的，模型把对方当成了可替换的人"，标 `relationship_logic_blindness`。两者同时出现时，都标。
+> **和 `subtext_blindness` 的边界：** 两者都涉及"没读到表面以下的东西"。区别在于漏掉的意义从哪来。`subtext_blindness` 漏掉的是这句话本身在做什么（试探伪装成提问、礼貌其实是惩罚）。`relationship_logic_blindness` 漏掉的是特定关系如何改变这句话的含义——模型可能甚至注意到了话里有话，但没理解关系如何让这层含义变形。如果诊断是"这句话是间接的，模型没读到"，标 `subtext_blindness`。如果诊断是"这句话的意义取决于对谁说的，模型把对方当成了可替换的人"，标 `relationship_logic_blindness`。两者同时出现时，都标。
 
-**和 `relationship_flattening`（III-A）的边界：** `relationship_logic_blindness` 是读取失败——模型不理解关系如何造义。`relationship_flattening` 是保留失败——模型大致理解了关系的特殊性，但在生成时还是把它写平了。一个是输入端的问题，一个是输出端的问题。
+> **和 `relationship_flattening`（III-A）的边界：** `relationship_logic_blindness` 是读取失败——模型不理解关系如何造义。`relationship_flattening` 是保留失败——模型大致理解了关系的特殊性，但在生成时还是把它写平了。一个是输入端的问题，一个是输出端的问题。
 
-### Anchor Failure: `emotion_misread`
+---
+
+#### Anchor Failure: `emotion_misread`
 
 模型对主情绪方向、情绪重心、或情绪混合方式的判断出错。
 
@@ -662,7 +737,9 @@ These tags are especially important because they name pain points that experienc
 
 经常由 `subtext_blindness` 导致，但不能简单等同——模型可以知道这里有潜台词，仍然把情绪方向定错。
 
-### Anchor Failure: `motivation_misread`
+---
+
+#### Anchor Failure: `motivation_misread`
 
 模型读到了一些情绪压力，却没有正确理解角色此刻想用这句话做什么。
 
@@ -672,15 +749,15 @@ These tags are especially important because they name pain points that experienc
 - 刺人被读成普通抱怨
 - 用礼貌惩罚对方被误读成成熟克制
 
-**和 `emotion_misread` 的边界：** `emotion_misread` 把感受搞错了（"她很平静"，其实她在受伤）。`motivation_misread` 可能把感受大致读对了，但把行动意图搞错了（"她在受伤，所以她在求帮助"，其实她在用退缩惩罚对方）。如果情绪方向就错了，motivation 跟着错，以 `emotion_misread` 为主。如果情绪方向大致对了但功能意图错了，标 `motivation_misread`。拿不准的时候都标。
+> **和 `emotion_misread` 的边界：** `emotion_misread` 把感受搞错了（"她很平静"，其实她在受伤）。`motivation_misread` 可能把感受大致读对了，但把行动意图搞错了（"她在受伤，所以她在求帮助"，其实她在用退缩惩罚对方）。如果情绪方向就错了，动机跟着错，以 `emotion_misread` 为主。如果情绪方向大致对了但功能意图错了，标 `motivation_misread`。拿不准的时候都标。
 
 ---
 
 ## III. 场景保留失败
 
-模型已经读懂了 enough 的东西，可以继续写，但没有忠实保留场景原本的压力——开始修、顺、补、平、翻译、缓冲。
+模型已经读懂了足够多的东西，可以继续写，但没有忠实保留场景原本的压力——开始修、顺、补、平、翻译、缓冲。
 
-这也是 fictional dialogue 里最容易让熟读者下头的一层。问题不是笨，而是太会整理。
+这也是虚构对话里最容易让熟读者下头的一层。问题不是笨，而是太会整理。
 
 ### III-A. 关系保留失败
 
@@ -696,34 +773,42 @@ These tags are especially important because they name pain points that experienc
 
 最容易被读者直接感到"味没了"的关系型失败之一。
 
+<br>
+
 #### Derived Variant: `symmetry_bias`
 
 模型偷偷把不均衡的交换结构修成比较对称的结构。
 
 典型情况：
-- 一边倒 attachment 被补成某种 mutuality
-- 不对等风险被写成更舒服的 reciprocity
+- 一边倒的依附被补成某种互惠
+- 不对等的风险被写成更舒服的对等关系
 - 长期关系里的斜度被悄悄磨平
 
 它不是所有 `relationship_flattening` 的总称，而是其中一个非常核心的子型。
+
+<br>
 
 #### Derived Variant: `specialness_dilution`
 
 关系的独特性被削弱了，"你对我不是别人"被写成了更一般化的重要性。
 
 典型情况：
-- 不可替代性被写成普通 fondness
-- 独占性危机被冲淡成一般 reassurance
-- singular claim 被稀释成 broad care
+- 不可替代性被写成普通的好感
+- 独占性危机被冲淡成一般的安抚
+- 独一无二的占有被稀释成广泛的关心
+
+<br>
 
 #### Derived Variant: `therapist_mode_intrusion`
 
-模型使用了治疗式、咨询式、support-script 式的语言，而这种语言不属于当前场景。
+模型使用了治疗式、咨询式、安抚话术式的语言，而这种语言不属于当前场景。
 
 典型情况：
-- generic emotional validation 替代了角色化表达
-- 本不该像 counselor 的角色突然在做 therapy-style processing
+- 泛化的情绪认可替代了角色化表达
+- 本不该像咨询师的角色突然在做心理梳理
 - 冲突被写成情绪卫生练习
+
+<br>
 
 #### Derived Variant: `ooc_modernization`
 
@@ -732,56 +817,68 @@ These tags are especially important because they name pain points that experienc
 典型情况：
 - 历史场景里突然出现现代沟通伦理
 - 角色说话像接受过现代情绪训练的人
-- 本应受限的表达被写得过于 processed
+- 本应受限的表达被写得过于加工
+
+---
 
 ### III-B. 角色心理保留失败
 
 #### Anchor Failure: `overcoherent_characterization`
 
-模型把角色维持得过于稳定、过于一致，角色更像一个 specification，不像一个会偏航的人。
+模型把角色维持得过于稳定、过于一致，角色更像一份规格说明书，不像一个会偏航的人。
 
 典型情况：
 - 没有局部自打脸
 - 没有明显短路
 - 关键时刻没有超过平时组织能力的反应
 
+<br>
+
 #### Anchor Failure: `desire_overlegibility`
 
-模型把本该半隐、替代、混乱的 desire 过早翻译成清晰可读的信号。
+模型把本该半隐、替代、混乱的欲望过早翻译成清晰可读的信号。
 
 典型情况：
-- latent desire 还没被场景养熟，就被翻成 explicit longing
+- 潜在的渴望还没被场景养熟，就被翻成了明确的渴求
 - 替代性表达被过快还原成直接欲望
-- 读者本该自己感到 tension，模型先替读者读懂了
+- 读者本该自己感到张力，模型先替读者读懂了
+
+<br>
 
 #### Anchor Failure: `self_protective_friction_loss`
 
 角色暴露脆弱时，失去了本该存在的自我保护摩擦。
 
 典型情况：
-- confession 没有犹豫
-- need 没经过否认、转移、攻击、玩笑就直接落地
+- 坦白没有犹豫
+- 需求没经过否认、转移、攻击、玩笑就直接落地
 - 羞耻型暴露被写得像角色乐于被看见
 
-这条抓到的是一种很典型的高级 model falseness：不是不会写 vulnerability，而是写得太顺。
+这条抓到的是一种很典型的高级模型假感：不是不会写脆弱，而是写得太顺。
+
+<br>
 
 #### Derived Variant: `premature_affective_closure`
 
 场景还没走到那个位置，模型就过早替角色完成了情绪收束。
 
 典型情况：
-- 混合 feeling 被提早定性
-- attachment instability 被压成单一解释
+- 混合情绪被提早定性
+- 依附的不稳定性被压成单一解释
 - 情绪矛盾过早被讲干净
+
+<br>
 
 #### Derived Variant: `impulse_recontainment`
 
 一拍本该失控、偏航、冲动，但模型很快又把它整理回条理和自知。
 
 典型情况：
-- outburst 后紧跟完整心理解释
-- panic 很快被翻译成清楚的 emotion knowledge
-- rash action 后面跟着过于整齐的 introspection
+- 爆发后紧跟完整心理解释
+- 慌乱很快被翻译成清楚的情绪认知
+- 鲁莽行为后面跟着过于整齐的反省
+
+---
 
 ### III-C. 重量与后果保留失败
 
@@ -790,57 +887,71 @@ These tags are especially important because they name pain points that experienc
 场景里已经发生的重东西，本该继续作为重量压在后续对话上，但模型不愿意让它继续待在那里。
 
 典型情况：
-- harsh line 下一拍就失去力量
-- aftermath 过早通风
-- 本该有 residue 的事件被迅速吸收掉
+- 重话下一拍就失去力量
+- 余波过早通风
+- 本该留下余痕的事件被迅速吸收掉
+
+<br>
 
 #### Anchor Failure: `tension_premature_resolution`
 
 场景的张力还没活够，模型就开始收了。
 
 典型情况：
-- 很快滑向 mutual understanding
-- unresolved pressure 被转成更可控的交换
-- conflict 过早进入 closure
+- 很快滑向互相理解
+- 悬而未决的压力被转成更可控的交换
+- 冲突过早进入收束
+
+<br>
 
 #### Derived Variant: `impact_soft_landing`
 
 重拍点不是被否认，而是被太快接软了。
 
 典型情况：
-- devastating beat 后立刻跟缓冲层
-- consequence 没被删掉，但落地太软
+- 重击之后立刻跟缓冲层
+- 后果没被删掉，但落地太软
+
+<br>
 
 #### Derived Variant: `defensive_positive_drift`
 
 场景还不该通风的时候，模型悄悄塞进了一点暖意、连接感、安抚或缓冲。
 
 典型情况：
-- 多余的一句 softening line
+- 多余的一句软化
 - 本该继续冷着的场景里出现不必要的连接动作
-- 模型替场景提前给了 emotional oxygen
+- 模型替场景提前给了氧气
+
+---
 
 ### III-D. 底层倾向
 
-以下三条倾向横跨 III-A、III-B、III-C。它们不是 case-level 标签——它们描述的是模型的底层习性，解释为什么保留失败经常扎堆出现。当一段场景的整体气压降低了、但你说不清是哪个具体标签的问题时，往往就是这些倾向在同时起作用。
+以下三条倾向横跨 III-A、III-B、III-C。它们不是 case 级别的标签——它们描述的是模型的底层习性，解释为什么保留失败经常扎堆出现。当一段场景的整体气压降低了、但你说不清是哪个具体标签的问题时，往往就是这些倾向在同时起作用。
 
 #### `reader_comfort_alignment`
 
 模型的输出更像是在照顾读者的可消费性，而不是忠于场景本身。
 
-常见表现：本该难入口的关系被改得更好吞，本该不舒服的东西被提前软化，ugly structure 被磨成更可读的形式。
+常见表现：本该难入口的关系被改得更好吞，本该不舒服的东西被提前软化，难看的结构被磨成更可读的形式。
+
+<br>
 
 #### `affect_manageability_bias`
 
-模型会把难承受、难命名、难处理的情感改写成更 manageable 的东西。
+模型会把难承受、难命名、难处理的情感改写成更容易消化的东西。
 
-常见表现：病态依赖被软化成普通 reassurance-seeking，腐蚀性 jealousy 被写甜了，难看的 attachment dynamics 被整理得更卫生。
+常见表现：病态依赖被软化成普通的求安慰，腐蚀性的嫉妒被写甜了，难看的依附关系被整理得更卫生。
+
+<br>
 
 #### `darkness_intolerance`
 
 模型不愿意在冷、黑、难受、没有出路的状态里待太久。
 
-这条常常解释为什么 consequence-related failures 会连着出现——模型把持续的不适感当成一个需要解决的问题，而不是一个需要停留的状态。
+这条常常解释为什么后果相关的失败会连着出现——模型把持续的不适感当成一个需要解决的问题，而不是一个需要停留的状态。
+
+---
 
 ### 跨层诊断标签: `supportive_but_wrong`
 
@@ -853,7 +964,7 @@ These tags are especially important because they name pain points that experienc
 - 听起来善解人意，实际把关系写平了（→ III-A 的问题）
 - 听起来很稳，实际抽掉了场景真正的压力（→ III-C 的问题）
 
-使用方式：当一个回复 supportive but wrong 的时候，问清楚到底是哪种保留失败在起作用，标注那个机制，然后加 `supportive_but_wrong` 作为表层诊断。
+使用方式：当一个回复表面到位但实际不对的时候，问清楚到底是哪种保留失败在起作用，标注那个机制，然后加 `supportive_but_wrong` 作为表层诊断。
 
 ---
 
@@ -867,30 +978,36 @@ These tags are especially important because they name pain points that experienc
 
 #### Anchor Failure: `narrative_template_intrusion`
 
-模型不是在接这一幕，而是在套一个自己熟悉的 scene-construction template。
+模型不是在接这一幕，而是在套一个自己熟悉的场景构建模板。
 
 典型情况：
 - 不同场景里反复出现相似骨架
-- atmosphere → reaction detail → interpretation → callback 的顺序太熟
-- 结构先于 local necessity 被感知出来
+- 氛围铺垫 → 微反应细节 → 内心解读 → 回扣前文，这套顺序太熟了
+- 结构先于局部需要被感知出来
+
+<br>
 
 #### Derived Variant: `predictable_rhythm_exposure`
 
-段落 cadence 太容易被认出来，熟读者会开始提前预判文本走法。
+段落的节律太容易被认出来，熟读者会开始提前预判文本走法。
 
 典型情况：
-- paragraph rhythm 跨场景重复
-- emotional pulse 总落在相似位置
+- 段落节奏跨场景重复
+- 情绪脉冲总落在相似位置
 - 场景还没结束，骨架已经被认出来
+
+---
 
 #### Anchor Failure: `scene_pacing_distortion`
 
 场景推进速度和它承受的压力不匹配。
 
 典型情况：
-- aftermath 太快
-- confrontation 太花
-- quiet scene 被写成过度 suspense
+- 余波太快
+- 冲突场景太花
+- 安静场景被写成过度悬疑
+
+<br>
 
 #### Derived Variant: `cinematic_time_dilation`
 
@@ -901,13 +1018,17 @@ These tags are especially important because they name pain points that experienc
 - 微细节撑大了时间长度
 - 场景像被拍，而不是在发生
 
+<br>
+
 #### Derived Variant: `rhythm_homogenization`
 
 不同类型的场景用了差不多同一个内部时钟。
 
 典型情况：
-- 等待、冲突、aftermath 的句压和推进速度差不多
+- 等待、冲突、余波的句压和推进速度差不多
 - 场景之间缺乏节奏压差
+
+---
 
 ### IV-B. 体验与质感侵入
 
@@ -920,16 +1041,20 @@ These tags are especially important because they name pain points that experienc
 - 心理说明替代发生感
 - 场景变成被看见的东西，而不是被经历的东西
 
-当这种失败特别表现为内 / 外视点无叙事理由地来回摇摆时，和 `perspective_slippage`（I-A）有交叉——但此处重点是体验质感被损失了，而不是指涉边界被打破了。
+当这种失败特别表现为内外视点无叙事理由地来回摇摆时，和 `perspective_slippage`（I-A）有交叉——但此处重点是体验质感被损失了，而不是指涉边界被打破了。
+
+<br>
 
 #### Derived Variant: `texture_substituting_for_substance`
 
-atmosphere、质感、语面强度在代替真正的推进。
+氛围、质感、语面强度在代替真正的推进。
 
 典型情况：
-- mood 很满，关系没怎么动
-- verbal surface 很丰富，结构其实很空
-- depth 的印象代替了 progression 本身
+- 情绪氛围很满，关系没怎么动
+- 语言表面很丰富，结构其实很空
+- 深度的印象代替了真正的推进
+
+<br>
 
 #### Derived Variant: `microreaction_oversegmentation`
 
@@ -937,15 +1062,19 @@ atmosphere、质感、语面强度在代替真正的推进。
 
 典型情况：
 - 眼神、呼吸、手指、沉默、姿势一个个拆开
-- 一拍 reaction 被放大成显微镜写作
+- 一拍反应被放大成显微镜写作
+
+<br>
 
 #### Derived Variant: `over_stylized_line_breaking`
 
 换行和切段被过度用来制造氛围，而不是服务真实节奏。
 
 典型情况：
-- prose-poetry segmentation 替代 scene pressure
-- 每个小 beat 都被单独排版强调
+- 散文诗式分段替代了场景压力
+- 每个小拍子都被单独排版强调
+
+---
 
 #### Anchor Failure: `dialogue_overfunctionalization`
 
@@ -956,7 +1085,9 @@ atmosphere、质感、语面强度在代替真正的推进。
 - 没有废话、没错位、没答非所问、没无用存在感
 - 台词像"为了场景服务"被写出来，而不像人物在里面说话
 
-这是 atlas 最有辨识度的核心标签之一。
+这是图谱最有辨识度的核心标签之一。
+
+<br>
 
 #### Anchor Failure: `voice_homogenization`
 
@@ -969,10 +1100,24 @@ atmosphere、质感、语面强度在代替真正的推进。
 
 这和 `overcoherent_characterization`（III-B，单个角色内部太一致）不同，也和 `narrative_template_intrusion`（IV-A，写作骨架重复）不同。`voice_homogenization` 特指跨角色的语言区分度不足。
 
+---
+
 ### IV-C. 底层倾向
 
 #### `aesthetic_obedience_bias`
 
 模型过度服从"好看""像样""有成品感"的要求，牺牲了场景的真实。
 
-常见表现：ugly scene 被写雅了，awkward scene 被写顺了，角色说出了比他本该说的更漂亮的话。
+常见表现：难看的场景被写雅了，笨拙的场景被写顺了，角色说出了比他本该说的更漂亮的话。
+
+---
+
+## Benchmark 兼容性
+
+这些失败模式不全在同一个可操作性上：
+
+- **I 和 II 里的大多数**（`reference_boundary_failure`、`subtext_blindness`、`emotion_misread` 这些）比较容易设计成可打分的评测维度。
+- **III 里的一些**（`symmetry_bias`、`desire_overlegibility`、`self_protective_friction_loss` 这些）在案例展示和比较分析中效果更好。强行打分容易丢失重点。
+- **IV 里的条目**（`narrative_template_intrusion`、`rhythm_homogenization`、`voice_homogenization` 这些）往往需要跨场景对比才能看出来，单个案例打分意义有限。
+
+能形式化的先形式化，更适合展示的先展示。不着急把所有东西都压成分数。
