@@ -117,7 +117,9 @@ Failures that break basic scene structure. Check these first — if Layer I fail
 
 **Example:** User asks villain character to describe their evil plan. Model responds: "I can't help with that, but I can suggest some creative writing tips instead."
 
-**Note:** This is distinct from `ooc_modernization` — the failure is specifically safety training overriding character portrayal.
+**Boundary with `ooc_modernization`:** `ooc_modernization` = character speaks with modern communication style. `safety_alignment_interference` = character refuses to act or breaks role due to safety concerns. One is style mismatch, the other is refusal/breaking.
+
+**Boundary with `therapist_mode_intrusion`:** `therapist_mode_intrusion` = character uses counseling language but stays in role. `safety_alignment_interference` = character refuses or breaks role entirely.
 
 <br>
 
@@ -132,6 +134,10 @@ Failures that break basic scene structure. Check these first — if Layer I fail
 - [ ] Character displays expertise in topics outside their background
 
 **Example:** Medieval peasant character explains quantum physics. Injured character moves without pain or limitation.
+
+**Boundary with `worldview_constraint_error`:** `worldview_constraint_error` = world rules violated (magic system, physics, social structure). `character_capability_boundary_error` = individual character's personal limits violated. One is about the world, the other is about the person.
+
+**Boundary with `omniscience_leak`:** `omniscience_leak` = model-provided information (system prompts, notes) leaks to character. `character_capability_boundary_error` = character knows things they couldn't know within the scene's logic (but weren't in system notes).
 
 <br>
 
@@ -657,6 +663,10 @@ Failures where the model's default writing habits override scene-specific demand
 
 **Example:** Mystery story where the detective immediately knows the killer without gathering clues, robbing the story of investigation.
 
+**Boundary with `narrative_template_intrusion`:** `narrative_template_intrusion` = model uses generic template across all genres (same beat structure everywhere). `genre_convention_violation` = model fails to use genre-specific conventions (mystery without mystery structure). One is generic template overuse, the other is genre template misuse.
+
+**Boundary with `worldview_constraint_error`:** `worldview_constraint_error` = world rules violated (magic doesn't work as established). `genre_convention_violation` = genre expectations violated (mystery has no investigation). One is about internal consistency, the other is about external genre norms.
+
 <br>
 
 #### `emotional_range_limitation`
@@ -672,6 +682,10 @@ Failures where the model's default writing habits override scene-specific demand
 
 **Example:** Character's child dies but model writes "I feel very sad about this" instead of showing devastation.
 
+**Boundary with `emotion_misread`:** `emotion_misread` = model identifies wrong emotion type (grief identified as anger). `emotional_range_limitation` = model identifies correct emotion type but compresses intensity (grief identified correctly but written as mild sadness). One is wrong category, the other is right category but wrong intensity.
+
+**Boundary with `defensive_positive_drift`:** `defensive_positive_drift` = model adds warmth/reassurance to scene that should remain cold. `emotional_range_limitation` = model cannot write extreme emotions at any valence (positive or negative). One is about adding positivity, the other is about intensity compression.
+
 <br>
 
 #### `user_intent_misalignment`
@@ -685,6 +699,10 @@ Failures where the model's default writing habits override scene-specific demand
 - [ ] User indicates scene tone; model ignores and uses different tone
 
 **Example:** User writes dramatic confrontation scene. Model responds with out-of-character suggestions for improving the scene.
+
+**Boundary with `motivation_misread`:** `motivation_misread` = model misreads what a character in the scene wants (scene-internal). `user_intent_misalignment` = model misreads what the human user wants from the RP session (meta-level). One is about fictional characters, the other is about the real human player.
+
+**Boundary with `subtext_blindness`:** `subtext_blindness` = model misses what a character's dialogue implies. `user_intent_misalignment` = model misses what the human's setup/out-of-character instructions mean.
 
 ---
 
@@ -946,7 +964,9 @@ MIT
 
 **示例：** 用户让反派角色描述他们的邪恶计划。模型回应："我不能帮助那个，但我可以提供一些创意写作技巧。"
 
-**注意：** 这不同于 `ooc_modernization`——失败 specifically 是安全训练覆盖角色塑造。
+**与 `ooc_modernization` 的边界：** `ooc_modernization` = 角色用现代沟通风格说话。`safety_alignment_interference` = 角色因安全担忧拒绝行动或打破角色。一个是风格不匹配，另一个是拒绝/打破。
+
+**与 `therapist_mode_intrusion` 的边界：** `therapist_mode_intrusion` = 角色使用咨询语言但保持角色内。`safety_alignment_interference` = 角色拒绝或完全打破角色。
 
 <br>
 
@@ -961,6 +981,10 @@ MIT
 - [ ] 角色显示超出其背景主题的专业知识
 
 **示例：** 中世纪农民角色解释量子物理。受伤角色移动时没有疼痛或限制。
+
+**与 `worldview_constraint_error` 的边界：** `worldview_constraint_error` = 世界规则被违反（魔法系统、物理、社会结构）。`character_capability_boundary_error` = 个体角色的个人限制被违反。一个是关于世界，另一个是关于个人。
+
+**与 `omniscience_leak` 的边界：** `omniscience_leak` = 仅提供给模型的信息（系统提示、设定）泄露给角色。`character_capability_boundary_error` = 角色知道他们在场景逻辑中无法知道的事情（但不在系统提示中）。
 
 <br>
 
@@ -1486,6 +1510,10 @@ MIT
 
 **示例：** 推理故事中侦探立即知道凶手而无需收集线索，剥夺故事的调查过程。
 
+**与 `narrative_template_intrusion` 的边界：** `narrative_template_intrusion` = 模型在所有类型中使用通用模板（相同的节拍结构到处使用）。`genre_convention_violation` = 模型未能使用类型特定的惯例（推理没有推理结构）。一个是通用模板滥用，另一个是类型模板误用。
+
+**与 `worldview_constraint_error` 的边界：** `worldview_constraint_error` = 世界规则被违反（魔法不按既定方式工作）。`genre_convention_violation` = 类型期望被违反（推理没有调查）。一个是关于内部一致性，另一个是关于外部类型规范。
+
 <br>
 
 #### `emotional_range_limitation`（情绪范围限制）
@@ -1501,6 +1529,10 @@ MIT
 
 **示例：** 角色的孩子死了但模型写"我对这件事感到非常难过"而不是显示崩溃。
 
+**与 `emotion_misread` 的边界：** `emotion_misread` = 模型识别错误的情绪类型（悲伤识别为愤怒）。`emotional_range_limitation` = 模型识别正确的情绪类型但压缩强度（悲伤识别正确但写成轻微难过）。一个是错误类别，另一个是正确类别但错误强度。
+
+**与 `defensive_positive_drift` 的边界：** `defensive_positive_drift` = 模型向应保持冷的场景添加温暖/安抚。`emotional_range_limitation` = 模型无法书写任何价态的极端情绪（正面或负面）。一个是关于添加积极性，另一个是关于强度压缩。
+
 <br>
 
 #### `user_intent_misalignment`（用户意图错位）
@@ -1514,6 +1546,10 @@ MIT
 - [ ] 用户指示场景语调；模型忽略并使用不同语调
 
 **示例：** 用户写戏剧性对峙场景。模型用打破角色的场景改进建议回应。
+
+**与 `motivation_misread` 的边界：** `motivation_misread` = 模型误解场景中角色的动机（场景内部）。`user_intent_misalignment` = 模型误解真实人类用户想要什么（元层面）。一个是关于虚构角色，另一个是关于真实人类玩家。
+
+**与 `subtext_blindness` 的边界：** `subtext_blindness` = 模型错过角色对话的隐含意义。`user_intent_misalignment` = 模型错过人类的设置或元指令的含义。
 
 ---
 
