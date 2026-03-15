@@ -31,6 +31,17 @@
 
 ## 完整分类
 
+### 新增：AI Companion 特定失败类型
+
+详见 [`docs/ai-companion-failures.md`](docs/ai-companion-failures.md) —— 针对 AI 陪伴/情感向场景的失败类型补充，包含：
+- `therapeutic_language_intrusion`（治疗性语言侵入）
+- `emotional_labor_imbalance`（情绪劳动失衡）
+- `parasocial_reinforcement`（准社会关系强化）
+- `intimacy_escalation_bias`（亲密度升级偏向）
+- `trauma_romanticization`（创伤浪漫化）
+
+---
+
 ### 第一层：前置条件
 
 破坏场景基础结构的失败。必须先检查这一层：如果第一层失败，后续层级无法可靠评估。
