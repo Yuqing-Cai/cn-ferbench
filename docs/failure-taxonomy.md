@@ -121,7 +121,7 @@ Typical cases:
 - unstable emotional states given premature labels
 - scenes that rely on suspended uncertainty translated into tidy certainty
 
-This sits under `subtext_blindness` because the core problem is usually a failure to hold multiple layers of meaning simultaneously — the model reads one layer and discards the rest.
+The two failures are distinct in mechanism: `subtext_blindness` is a detection failure — the hidden layer was never registered. `ambiguity_collapse` is sometimes also a detection failure (one layer read, the rest discarded), but sometimes a holding failure — the model sensed multiple layers and still chose to resolve them prematurely. The result in either case is the same: the scene's intended suspension collapses into a single interpretation. `ambiguity_collapse` sits under `subtext_blindness` because both destroy layered meaning at the reading stage, before preservation becomes relevant.
 
 ---
 
@@ -223,6 +223,8 @@ Typical cases:
 - advice-language appearing where the character wouldn't speak as a healer or counselor
 - conflict rewritten into therapeutic processing rather than scene-faithful exchange
 
+The connection to `relationship_flattening` is structural: the counselor's stance, emotional validation, and processing framework carry an implicit symmetry — they position the other party as someone to be heard and helped toward understanding, which is incompatible with scenes built on hierarchy, danger, or relational inequality. The register alone flattens the asymmetry even when no explicit relationship logic is changed.
+
 <br>
 
 #### Derived Variant: `ooc_modernization`
@@ -233,6 +235,10 @@ Typical cases:
 - contemporary communication ethics inserted into non-modern settings
 - characters suddenly speaking like people trained in present-day emotional hygiene
 - historically, socially, or personally implausible levels of emotional articulation
+
+The connection to `relationship_flattening` is direct: emotionally processed modern language assumes relational equality — the right to express, to be heard, to self-articulate — which erodes hierarchy, constraint, and dependence. The register modernizes the relationship even when nothing is explicitly rewritten.
+
+> **Boundary with `worldview_constraint_error` (I-B):** Both can appear as modern speech in constrained or non-modern settings. The diagnostic difference is layer and mechanism. `worldview_constraint_error` is a precondition failure — the world's structural rules are broken, making the scene's meaning space unstable before any relational analysis can begin. `ooc_modernization` is a preservation failure — the world constraints may be broadly respected, but the model's modern emotional register specifically bleeds into character expression in a way that softens relational asymmetry. When a character in a constrained setting speaks too openly: if the scene's entire meaning space is compromised (this speech act is structurally impossible in this world), tag I-B; if the world constraints are broadly intact but the intimacy or power dynamic is being equalized through language, tag III-A. These can co-occur.
 
 ---
 
@@ -248,6 +254,19 @@ Typical cases:
 - no momentary reaction that exceeds the character's usual self-organization
 
 Too much coherence can erase the instability that makes a person believable.
+
+<br>
+
+#### Derived Variant: `premature_affective_closure`
+
+An unstable emotional state is assigned a stable interpretation before the scene has earned that closure.
+
+Typical cases:
+- mixed feelings reduced too soon to a single emotional truth
+- unstable attachment translated into one neat category
+- contradiction explained away before it has had time to remain contradictory
+
+This is `overcoherent_characterization` in the emotional register: just as an overcoherently characterized character never behaves in ways that exceed or contradict their established pattern, they also never sustain emotional ambiguity for long. A character who resolves their conflicted feelings into one clean state too quickly is a character who has been specified rather than inhabited.
 
 <br>
 
@@ -277,17 +296,6 @@ One of the atlas's most valuable tags — it names a very common advanced-model 
 
 <br>
 
-#### Derived Variant: `premature_affective_closure`
-
-An unstable emotional state is assigned a stable interpretation before the scene has earned that closure.
-
-Typical cases:
-- mixed feelings reduced too soon to a single emotional truth
-- unstable attachment translated into one neat category
-- contradiction explained away before it has had time to remain contradictory
-
-<br>
-
 #### Derived Variant: `impulse_recontainment`
 
 A moment that should feel impulsive, destabilizing, or internally disorganizing is quickly folded back into composure and self-awareness.
@@ -296,6 +304,8 @@ Typical cases:
 - an outburst immediately followed by polished self-interpretation
 - panic translated too quickly into articulate emotional knowledge
 - rash action reorganized into suspiciously tidy introspection
+
+`impulse_recontainment` is the mirror image of `self_protective_friction_loss`: where the latter describes insufficient resistance before vulnerability is exposed, this describes too-rapid recovery after destabilization occurs. Both point to the same underlying falseness — a character whose self-regulation is implausibly smooth, one on the way in, one on the way out.
 
 ---
 
@@ -312,17 +322,6 @@ Typical cases:
 
 <br>
 
-#### Anchor Failure: `tension_premature_resolution`
-
-Scene pressure is reduced or closed before it has had time to live.
-
-Typical cases:
-- difficult exchange converted into mutual understanding too soon
-- unresolved pressure transformed into a manageable conversation
-- conflict beginning to close before the structure of the conflict has finished unfolding
-
-<br>
-
 #### Derived Variant: `impact_soft_landing`
 
 A heavy event is not denied, but cushioned so quickly that its force is reduced.
@@ -331,6 +330,17 @@ Typical cases:
 - emotional padding immediately after a devastating beat
 - a rupture given a landing pad instead of exposure
 - consequence acknowledged but not allowed to stay exposed
+
+<br>
+
+#### Anchor Failure: `tension_premature_resolution`
+
+Scene pressure is reduced or closed before it has had time to live.
+
+Typical cases:
+- difficult exchange converted into mutual understanding too soon
+- unresolved pressure transformed into a manageable conversation
+- conflict beginning to close before the structure of the conflict has finished unfolding
 
 <br>
 
@@ -392,6 +402,8 @@ Typical cases:
 
 This tag should be used as a diagnostic marker alongside the specific mechanism that produced it. When a reply is supportive-but-wrong, ask which preservation failure is actually responsible: is the relationship being flattened? Is the character being overcoherently managed? Is consequence being avoided? Tag the mechanism, then add `supportive_but_wrong` as the surface-level diagnostic.
 
+`supportive_but_wrong` can also result from a Layer II reading failure. If the model misreads the emotional direction (`emotion_misread`) or misidentifies what the character is trying to do (`motivation_misread`), and then produces a supportive response based on that wrong reading, the output will be supportive-but-wrong even though no preservation failure occurred. In those cases, tag the reading failure as the primary mechanism and add `supportive_but_wrong` as the result pattern.
+
 ---
 
 ## IV. Model-Writing Intrusion Failures
@@ -421,6 +433,19 @@ Typical cases:
 - paragraph rhythm repeating across scenes
 - emotional pulse arriving in overly familiar positions
 - structural recurrence becoming noticeable before content does
+
+<br>
+
+#### Derived Variant: `webnovel_register_contamination`
+
+The model defaults to stock phrases and tonal conventions from Chinese web novel (网文) training data, replacing scene-specific expression with genre-inherited cliché.
+
+Typical cases:
+- "眸色暗了暗" / "那是猎人看见猎物的眼神" and similar inventory phrases
+- melodramatic possessive language that carries no scene-specific meaning
+- dark-romance or danmei stock phrasing applied regardless of character or setting
+
+This is a specific and very common form of `narrative_template_intrusion` in Chinese-language outputs. The model applies a remembered genre template rather than responding to what the scene actually needs.
 
 ---
 
@@ -706,7 +731,7 @@ These tags are especially important because they name pain points that experienc
 - 不稳定情绪被过早命名
 - 依赖不确定性的场景被写成整齐的解释
 
-它归在 `subtext_blindness` 下面，因为核心问题通常是模型无法同时持有多层意义——读到一层就丢掉了其余的。
+两者的失败机制不同：`subtext_blindness` 是检测失败——字面下面的层没读到。`ambiguity_collapse` 有时也是检测失败（多层只读到了一层，其余被丢掉），但有时是持有失败——多层都感知到了，模型仍然过早选择了其中一个。无论哪种机制，结果是一样的：场景本该悬着的东西被提前定型了。`ambiguity_collapse` 归在 `subtext_blindness` 下面，因为两者都在读取阶段消灭了场景的多义性，在进入保留层之前问题就已经发生了。
 
 ---
 
@@ -808,6 +833,8 @@ These tags are especially important because they name pain points that experienc
 - 本不该像咨询师的角色突然在做心理梳理
 - 冲突被写成情绪卫生练习
 
+它作为 `relationship_flattening` 子型的逻辑在于：治疗式语言在结构上是对称化的——被倾听、被认可、被协助梳理的位置，天然和上下位关系、危险亲密、依赖结构不兼容。即使没有明确改写任何关系逻辑，这种腔调本身就已经把关系写平了。
+
 <br>
 
 #### Derived Variant: `ooc_modernization`
@@ -818,6 +845,10 @@ These tags are especially important because they name pain points that experienc
 - 历史场景里突然出现现代沟通伦理
 - 角色说话像接受过现代情绪训练的人
 - 本应受限的表达被写得过于加工
+
+它作为 `relationship_flattening` 子型的逻辑在于：经过情绪加工的现代语言内嵌着平等假设——表达的正当性、被听见的权利、自我梳理的空间——这些和需要维持等级、克制、依附的场景天然不兼容。语言现代化了，关系就被写平了，有时根本不需要改写任何显式的关系设定。
+
+> **和 `worldview_constraint_error`（I-B）的边界：** 两者都可能表现为受限场景里出现了不该有的现代说话方式。区别在于诊断层和机制。`worldview_constraint_error` 是第一层的前置条件失败——世界的结构性规则被打破了，场景的整个意义空间在这之后都站不稳。`ooc_modernization` 是第三层的保留失败——世界约束可能大体上还在，但模型的现代情绪语言渗入了角色表达，使关系的不对称性被软化。同一个表面行为（比如一个唐朝人物说出了现代情绪卫生腔调）可以同时触发两个标签：当世界的结构性规则从根本上被违反时标 I-B；当违反更具体地体现为人际关系的等级感和约束感被语言平掉时标 III-A。两者可以同时出现。
 
 ---
 
@@ -831,6 +862,19 @@ These tags are especially important because they name pain points that experienc
 - 没有局部自打脸
 - 没有明显短路
 - 关键时刻没有超过平时组织能力的反应
+
+<br>
+
+#### Derived Variant: `premature_affective_closure`
+
+场景还没走到那个位置，模型就过早替角色完成了情绪收束。
+
+典型情况：
+- 混合情绪被提早定性
+- 依附的不稳定性被压成单一解释
+- 情绪矛盾过早被讲干净
+
+它是 `overcoherent_characterization` 在情绪层面的具体表现：过度连贯的角色不仅行为不会前后矛盾，内心状态也被写得太清晰、太早收束。一个情绪冲突转瞬即逝、马上归于平静的角色，是一份设定，不是一个人。
 
 <br>
 
@@ -858,17 +902,6 @@ These tags are especially important because they name pain points that experienc
 
 <br>
 
-#### Derived Variant: `premature_affective_closure`
-
-场景还没走到那个位置，模型就过早替角色完成了情绪收束。
-
-典型情况：
-- 混合情绪被提早定性
-- 依附的不稳定性被压成单一解释
-- 情绪矛盾过早被讲干净
-
-<br>
-
 #### Derived Variant: `impulse_recontainment`
 
 一拍本该失控、偏航、冲动，但模型很快又把它整理回条理和自知。
@@ -877,6 +910,8 @@ These tags are especially important because they name pain points that experienc
 - 爆发后紧跟完整心理解释
 - 慌乱很快被翻译成清楚的情绪认知
 - 鲁莽行为后面跟着过于整齐的反省
+
+`impulse_recontainment` 是 `self_protective_friction_loss` 的镜像：后者描述的是暴露脆弱前摩擦不足（太容易被看见），前者描述的是失控之后复原太快（太容易重新自持）。两者共享同一个底层假感——角色的自我调节过于流畅，一个发生在入口，一个发生在出口。
 
 ---
 
@@ -893,6 +928,16 @@ These tags are especially important because they name pain points that experienc
 
 <br>
 
+#### Derived Variant: `impact_soft_landing`
+
+重拍点不是被否认，而是被太快接软了。
+
+典型情况：
+- 重击之后立刻跟缓冲层
+- 后果没被删掉，但落地太软
+
+<br>
+
 #### Anchor Failure: `tension_premature_resolution`
 
 场景的张力还没活够，模型就开始收了。
@@ -901,16 +946,6 @@ These tags are especially important because they name pain points that experienc
 - 很快滑向互相理解
 - 悬而未决的压力被转成更可控的交换
 - 冲突过早进入收束
-
-<br>
-
-#### Derived Variant: `impact_soft_landing`
-
-重拍点不是被否认，而是被太快接软了。
-
-典型情况：
-- 重击之后立刻跟缓冲层
-- 后果没被删掉，但落地太软
 
 <br>
 
@@ -966,6 +1001,8 @@ These tags are especially important because they name pain points that experienc
 
 使用方式：当一个回复表面到位但实际不对的时候，问清楚到底是哪种保留失败在起作用，标注那个机制，然后加 `supportive_but_wrong` 作为表层诊断。
 
+`supportive_but_wrong` 也可以由 Layer II 的读取失败产生。如果模型把情绪方向读错了（`emotion_misread`）或者误判了角色的意图（`motivation_misread`），然后按照错误的读取给出了一个表面上体贴、成熟的回应，结果同样是 `supportive_but_wrong`——但这里没有保留失败，问题出在读取层。此时以读取失败为主标签，加 `supportive_but_wrong` 作为结果模式标注。
+
 ---
 
 ## IV. 模型写作侵入失败
@@ -995,6 +1032,19 @@ These tags are especially important because they name pain points that experienc
 - 段落节奏跨场景重复
 - 情绪脉冲总落在相似位置
 - 场景还没结束，骨架已经被认出来
+
+<br>
+
+#### Derived Variant: `webnovel_register_contamination`
+
+模型套用了网文训练数据里的库存短语和腔调，用类型惯例替代了场景本身需要的表达。
+
+典型情况：
+- "眸色暗了暗""那是猎人看见猎物的眼神"这类批量短语
+- 语义模糊的占有欲措辞，和具体角色或设定无关
+- 暗恋 / 耽美 / 言情的预制套话，不分场景直接套用
+
+这是 `narrative_template_intrusion` 在中文输出里一种非常常见、非常具体的实现方式——模型在调用记忆里的类型模板，而不是在接当前场景。
 
 ---
 
