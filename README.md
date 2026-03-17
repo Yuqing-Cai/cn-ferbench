@@ -1556,7 +1556,6 @@
 | 文档 | 目的 |
 |------|------|
 | [`docs/project-thesis.md`](docs/project-thesis.md) | 项目范围、定位、设计原则 |
-| [`docs/ai-companion-failures.md`](docs/ai-companion-failures.md) | AI 陪伴/情感向场景的失败类型补充 |
 
 ---
 
