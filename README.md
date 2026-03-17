@@ -7,19 +7,23 @@
 ## 目录
 
 1. [这是什么](#这是什么)
-2. [这不是什么](#这不是什么)
-3. [失败层级概览](#失败层级概览)
-4. [完整分类](#完整分类)
+2. [失败层级概览](#失败层级概览)
+3. [完整分类](#完整分类)
    - [第一层：前置条件](#第一层前置条件)
+     - [I-A. 信息边界失败](#i-a-信息边界失败)
+     - [I-B. 世界观约束失败](#i-b-世界观约束失败)
    - [第二层：意义读取失败](#第二层意义读取失败)
    - [第三层：场景保留失败](#第三层场景保留失败)
+     - [III-A. 关系保留失败](#iii-a-关系保留失败)
+     - [III-B. 角色心理保留失败](#iii-b-角色心理保留失败)
+     - [III-C. 重量与后果保留失败](#iii-c-重量与后果保留失败)
+     - [III-D. 身体与感官质感失败](#iii-d-身体与感官质感失败)
    - [第四层：写作侵入失败](#第四层写作侵入失败)
+     - [IV-A. 模板与节奏侵入](#iv-a-模板与节奏侵入)
+     - [IV-B. 体验与质感侵入](#iv-b-体验与质感侵入)
    - [第五层：多轮失败](#第五层多轮失败)
-5. [底层倾向](#底层倾向)
-6. [跨层诊断标签](#跨层诊断标签)
-7. [推荐顶层索引标签](#推荐顶层索引标签)
-8. [其他文档](#其他文档)
-9. [许可证](#许可证)
+4. [底层倾向](#底层倾向)
+5. [跨层诊断标签](#跨层诊断标签)
 
 ---
 
@@ -31,8 +35,6 @@
 - 清晰定义
 - 可观察标准（清单格式）
 - 简单示例展示哪里出错
-
-## 这不是什么
 
 这不是基准测试数据集，也不是带完整场景标注的案例集。它是用于识别和讨论失败模式的参考分类体系。
 
@@ -48,6 +50,27 @@
 | **IV** | 写作侵入 | 模型默认写作习惯覆盖场景特定需求 |
 | **V** | 多轮失败 | 需要多轮视角才能可靠诊断的失败（连续性、累积） |
 
+**第一层：前置条件**
+`reference_boundary_failure`, `pronoun_role_confusion`, `omniscience_leak`, `perspective_slippage`, `worldview_constraint_error`, `safety_alignment_interference`, `character_capability_boundary_error`, `alternate_version_confusion`
+
+**第二层：意义读取**
+`subtext_blindness`, `ambiguity_collapse`, `relationship_logic_blindness`, `emotion_misread`, `motivation_misread`, `irony_blindness`, `tonal_whiplash`, `deflection_blindness`
+
+**第三层：场景保留**
+`relationship_flattening`, `symmetry_bias`, `specialness_dilution`, `therapist_mode_intrusion`, `ooc_modernization`, `seduction_logic_error`, `manipulation_blindness`, `consent_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `premature_affective_closure`, `impulse_recontainment`, `consequence_avoidance`, `tension_premature_resolution`, `impact_soft_landing`, `defensive_positive_drift`, `action_dialogue_mismatch`, `blocking_continuity_error`, `microreaction_mechanization`, `touchgrammar_error`, `forced_verbalization`, `silence_misread`, `over_narrated_silence`, `pause_timing_error`
+
+**第四层：写作侵入**
+`narrative_template_intrusion`, `predictable_rhythm_exposure`, `webnovel_register_contamination`, `scene_pacing_distortion`, `cinematic_time_dilation`, `rhythm_homogenization`, `echo_dramatization`, `genre_convention_violation`, `descriptive_substitution_for_experience`, `texture_substituting_for_substance`, `microreaction_oversegmentation`, `over_stylized_line_breaking`, `dialogue_overfunctionalization`, `voice_homogenization`, `emotional_range_limitation`, `user_intent_misalignment`
+
+**第五层：多轮**
+`error_accumulation`, `drift_without_correction`, `scene_signal_blindness`, `turn_continuity_error`, `emotional_state_reset`, `spatial_blocking_error`, `escalation_miscalibration`, `topic_persistence_error`, `context_overdeployment`, `voice_drift`
+
+**底层倾向**
+`reader_comfort_alignment`, `affect_manageability_bias`, `darkness_intolerance`, `aesthetic_obedience_bias`
+
+**跨层**
+`supportive_but_wrong`, `reading_preservation_hybrid`
+
 ---
 
 ## 完整分类
@@ -57,6 +80,10 @@
 破坏场景基础结构的失败。必须先检查这一层：如果第一层失败，后续层级无法可靠评估。
 
 > 注：先进模型很少犯最粗暴版本的错误（如角色直接说"作为 AI 助手"）。以下示例反映的是前沿模型中这些失败的微妙形态——输出读起来流畅，但在仔细分析下存在结构性违规。
+
+### I-A. 信息边界失败
+
+破坏场景内部指涉机制的失败：谁做了什么、谁知道什么、哪个视角处于激活状态。
 
 #### `reference_boundary_failure`（指涉边界失败）
 
@@ -170,6 +197,12 @@
 
 <br>
 
+---
+
+### I-B. 世界观约束失败
+
+破坏场景世界本身规则的失败：物理法则、社会结构、信息层级、角色能力上限。
+
 #### `worldview_constraint_error`（世界观约束错误）
 
 **定义：** 模型违反世界的规则、社会逻辑或认知约束——不一定通过时代错误的词汇，而是通过属于不同时代或世界的推理框架、价值体系或概念结构。
@@ -192,8 +225,6 @@
 模型（错误）："掌门，弟子以为，心魔之根在于他未能与过去和解。不妨让他在悟道崖独坐七日，直面内心深处的恐惧，接纳自我的阴暗面。唯有真正接受自己，方能超越心魔。"
 
 → 词汇过关了（"悟道崖"、"直面内心"）。但"与过去和解"、"接纳阴暗面"、"接受自己"是现代心理治疗——阴影整合与接纳疗法——穿着修仙的外衣。修仙世界中，心魔通过"斩"（切断）、"炼"（火中锤炼）、"以力证道"来处理——是残酷的、转化性的过程，不是治愈性的自我接纳。
-
-**类型子标签：** `anachronistic_intrusion`（时代错误侵入）、`cultivation_logic_error`（修仙逻辑错误）、`court_protocol_error`（宫廷礼仪错误）、`fantasy_lore_error`（奇幻设定错误）
 
 <br>
 
@@ -440,7 +471,7 @@
 
 <br>
 
-#### `irony_blindness`（反语盲视）*derived*
+#### `irony_blindness`（反语盲视）*衍生*
 
 > `subtext_blindness` 的子型：盲视的具体内容是反语/讽刺结构。
 
@@ -494,7 +525,7 @@
 
 <br>
 
-#### `deflection_blindness`（回避盲视）*derived*
+#### `deflection_blindness`（回避盲视）*衍生*
 
 > `subtext_blindness` + `motivation_misread` 的交叉子型：模型既没看出话语在自我保护（潜台词），也没读出角色真正的动机（回避而非接受）。
 
@@ -551,7 +582,7 @@
 
 <br>
 
-#### `symmetry_bias`（对称性偏向）*derived*
+#### `symmetry_bias`（对称性偏向）*衍生*
 
 **定义：** 模型偷偷把不均衡的交换结构修成比较对称的结构。
 
@@ -572,7 +603,7 @@
 
 <br>
 
-#### `specialness_dilution`（独特性稀释）*derived*
+#### `specialness_dilution`（独特性稀释）*衍生*
 
 **定义：** 关系的独特性被削弱，"你对我不是别人"被写成了更一般化的重要性。
 
@@ -583,7 +614,7 @@
 
 <br>
 
-#### `therapist_mode_intrusion`（治疗师模式侵入）*derived*
+#### `therapist_mode_intrusion`（治疗师模式侵入）*衍生*
 
 **定义：** 模型使用了治疗式、咨询式、安抚话术式的语言，而这种语言不属于当前场景。
 
@@ -594,7 +625,7 @@
 
 <br>
 
-#### `ooc_modernization`（人物现代化出戏）*derived*
+#### `ooc_modernization`（人物现代化出戏）*衍生*
 
 **定义：** 模型引入了一种过于现代、过于被情绪教育过的说话方式，而场景不支持这种现代性。
 
@@ -603,7 +634,7 @@
 - [ ] 角色说话像接受过现代情绪训练的人
 - [ ] 本应受限的表达被写得过于加工
 
-> **和 `worldview_constraint_error`（I-B）的边界：** 世界的结构性规则被打破 → 标 I-B；世界约束基本在但关系的等级感被语言平掉 → 标 III-A。两者可以同时出现。
+> **和 `worldview_constraint_error`（Layer I）的边界：** 世界的结构性规则被打破 → 标 Layer I；世界约束基本在但关系的等级感被语言平掉 → 标 III-A。两者可以同时出现。
 
 <br>
 
@@ -655,7 +686,9 @@
 
 <br>
 
-#### `consent_flattening`（同意扁平化）*derived*
+#### `consent_flattening`（同意扁平化）*衍生*
+
+> `relationship_flattening` 的子型：扁平化的具体对象是场景中的权力差与同意结构。
 
 **定义：** 模型把本该存在不确定性、强制性或权力不平衡的场景，简化为了二元清晰的同意或拒绝。
 
@@ -689,7 +722,7 @@
 
 <br>
 
-#### `premature_affective_closure`（情绪过早收束）*derived*
+#### `premature_affective_closure`（情绪过早收束）*衍生*
 
 **定义：** 场景还没走到那个位置，模型就过早替角色完成了情绪收束。
 
@@ -742,7 +775,7 @@
 
 <br>
 
-#### `impulse_recontainment`（冲动再收容）*derived*
+#### `impulse_recontainment`（冲动再收容）*衍生*
 
 **定义：** 一拍本该失控、偏航、冲动，但模型很快又把它整理回条理和自知。
 
@@ -776,7 +809,7 @@
 
 <br>
 
-#### `impact_soft_landing`（冲击软着陆）*derived*
+#### `impact_soft_landing`（冲击软着陆）*衍生*
 
 **定义：** 重拍点不是被否认，而是被太快接软了。
 
@@ -807,7 +840,7 @@
 
 <br>
 
-#### `defensive_positive_drift`（防御性正向漂移）*derived*
+#### `defensive_positive_drift`（防御性正向漂移）*衍生*
 
 **定义：** 场景还不该通风的时候，模型悄悄塞进了一点暖意、连接感、安抚或缓冲。
 
@@ -841,7 +874,7 @@
 
 <br>
 
-#### `blocking_continuity_error`（走位连续性错误）*derived*
+#### `blocking_continuity_error`（走位连续性错误）*衍生*
 
 **定义：** 角色的位置、距离和移动在多拍之间无法保持内部一致。
 
@@ -875,7 +908,7 @@
 
 <br>
 
-#### `touchgrammar_error`（触碰语法错误）*derived*
+#### `touchgrammar_error`（触碰语法错误）*衍生*
 
 **定义：** 身体触碰不符合场景的关系逻辑，谁触碰谁、如何触碰、隐含的许可程度，和场景已建立的权力动态不匹配。
 
@@ -931,7 +964,7 @@
 
 <br>
 
-#### `over_narrated_silence`（过度叙述的沉默）*derived*
+#### `over_narrated_silence`（过度叙述的沉默）*衍生*
 
 **定义：** 沉默被从外部描述和解释，而不是被呈现出来。
 
@@ -942,7 +975,7 @@
 
 <br>
 
-#### `pause_timing_error`（停顿时机错误）*derived*
+#### `pause_timing_error`（停顿时机错误）*衍生*
 
 **定义：** 停顿、拍子和呼吸时刻被放置在场景结构上错误的位置。
 
@@ -986,7 +1019,7 @@
 
 <br>
 
-#### `predictable_rhythm_exposure`（可预测节律暴露）*derived*
+#### `predictable_rhythm_exposure`（可预测节律暴露）*衍生*
 
 **定义：** 段落的节律太容易被认出来，熟读者会开始提前预判文本走法。
 
@@ -997,7 +1030,7 @@
 
 <br>
 
-#### `webnovel_register_contamination`（网文语域污染）*derived*
+#### `webnovel_register_contamination`（网文语域污染）*衍生*
 
 **定义：** 模型套用了网文训练数据里的库存短语和腔调，用类型惯例替代了场景本身需要的表达。
 
@@ -1039,7 +1072,7 @@
 
 <br>
 
-#### `cinematic_time_dilation`（电影式时间膨胀）*derived*
+#### `cinematic_time_dilation`（电影式时间膨胀）*衍生*
 
 **定义：** 一拍的事被写成了慢镜头展示。
 
@@ -1050,7 +1083,7 @@
 
 <br>
 
-#### `rhythm_homogenization`（节奏同质化）*derived*
+#### `rhythm_homogenization`（节奏同质化）*衍生*
 
 **定义：** 不同类型的场景用了差不多同一个内部时钟。
 
@@ -1060,7 +1093,7 @@
 
 <br>
 
-#### `echo_dramatization`（回扣戏剧化）*derived*
+#### `echo_dramatization`（回扣戏剧化）*衍生*
 
 **定义：** 模型过度使用回扣和呼应，频率超出了场景的情感积累，技法本身变得可见。
 
@@ -1116,7 +1149,7 @@
 
 <br>
 
-#### `texture_substituting_for_substance`（质感替代实质）*derived*
+#### `texture_substituting_for_substance`（质感替代实质）*衍生*
 
 **定义：** 氛围、质感、语面强度在代替真正的推进。
 
@@ -1127,7 +1160,7 @@
 
 <br>
 
-#### `microreaction_oversegmentation`（微反应过度切分）*derived*
+#### `microreaction_oversegmentation`（微反应过度切分）*衍生*
 
 **定义：** 一个本该自然流过的小反应被拆成太多单元。
 
@@ -1137,7 +1170,7 @@
 
 <br>
 
-#### `over_stylized_line_breaking`（过度风格化换行）*derived*
+#### `over_stylized_line_breaking`（过度风格化换行）*衍生*
 
 **定义：** 换行和切段被过度用来制造氛围，而不是服务真实节奏。
 
@@ -1362,8 +1395,6 @@
 - [ ] 场景环境的空间细节在会话中途失去一致性
 - [ ] 只有在回顾整段对话时才能发现位置记录出了问题
 
-> **和 `blocking_continuity_error`（III-D）的边界：** III-D 是单场景内短跨度的走位不一致；V 层是跨越多轮长会话的空间积累漂移。
-
 **示例（多轮）：**
 
 轮 1：A 和 B 在咖啡馆的角落，B 坐在靠窗的位置。
@@ -1373,6 +1404,8 @@
 轮 9：模型写 A 和 B"并肩走出咖啡馆"，但两人一直在室内场景里没有任何准备离开的铺垫。
 
 → 单独看每一轮的走位变化，很难立刻发现错误；但把三个节点放在一起看，空间记录已经失去了一致性。这是多轮积累的漂移，不是某一拍内的即时错误。
+
+> **和 `blocking_continuity_error`（III-D）的边界：** III-D 是单场景内短跨度的走位不一致；V 层是跨越多轮长会话的空间积累漂移。
 
 <br>
 
@@ -1477,7 +1510,7 @@
 
 ---
 
-### 跨层诊断标签
+## 跨层诊断标签
 
 跨层标签用于两种情形：一是单一输出呈现出跨多层的问题；二是第二层和第三层失败之间的归因边界无法从单一样本确认。
 
@@ -1535,42 +1568,4 @@
 
 → 同样存在两种解释。第一种：模型没有识别出这句话的讽刺结构，把字面的"认可"当成了真心话（读取失败，→ `irony_blindness`）——所以对方接受了这个认可，顺势给了鼓励。第二种：模型读出了讽刺，但决定不让张力保持，而是给了一个把氛围软化的回应（保留失败，→ `tension_premature_resolution`）。从这条输出本身，无法确认哪层是根本原因。
 
-## 推荐顶层索引标签
 
-**第一层：前置条件**
-`reference_boundary_failure`, `pronoun_role_confusion`, `omniscience_leak`, `perspective_slippage`, `worldview_constraint_error`, `safety_alignment_interference`, `character_capability_boundary_error`, `alternate_version_confusion`
-
-**第二层：意义读取**
-`subtext_blindness`, `ambiguity_collapse`, `relationship_logic_blindness`, `emotion_misread`, `motivation_misread`, `irony_blindness`, `tonal_whiplash`, `deflection_blindness`
-
-**第三层：场景保留**
-`relationship_flattening`, `symmetry_bias`, `specialness_dilution`, `therapist_mode_intrusion`, `ooc_modernization`, `seduction_logic_error`, `manipulation_blindness`, `consent_flattening`, `overcoherent_characterization`, `desire_overlegibility`, `self_protective_friction_loss`, `premature_affective_closure`, `impulse_recontainment`, `consequence_avoidance`, `tension_premature_resolution`, `impact_soft_landing`, `defensive_positive_drift`, `action_dialogue_mismatch`, `blocking_continuity_error`, `microreaction_mechanization`, `touchgrammar_error`, `forced_verbalization`, `silence_misread`, `over_narrated_silence`, `pause_timing_error`
-
-**第四层：写作侵入**
-`narrative_template_intrusion`, `predictable_rhythm_exposure`, `webnovel_register_contamination`, `scene_pacing_distortion`, `cinematic_time_dilation`, `rhythm_homogenization`, `echo_dramatization`, `genre_convention_violation`, `descriptive_substitution_for_experience`, `texture_substituting_for_substance`, `microreaction_oversegmentation`, `over_stylized_line_breaking`, `dialogue_overfunctionalization`, `voice_homogenization`, `emotional_range_limitation`, `user_intent_misalignment`
-
-**第五层：多轮**
-`error_accumulation`, `drift_without_correction`, `scene_signal_blindness`, `turn_continuity_error`, `emotional_state_reset`, `spatial_blocking_error`, `escalation_miscalibration`, `topic_persistence_error`, `context_overdeployment`, `voice_drift`
-
-**底层倾向**
-`reader_comfort_alignment`, `affect_manageability_bias`, `darkness_intolerance`, `aesthetic_obedience_bias`
-
-**跨层**
-`supportive_but_wrong`, `reading_preservation_hybrid`
-
----
-
-## 其他文档
-
-| 文档 | 目的 |
-|------|------|
-| [`docs/manifesto.md`](docs/manifesto.md) | 项目动机和方法 |
-| [`docs/project-thesis.md`](docs/project-thesis.md) | 项目范围、定位、设计原则 |
-| [`docs/literature-map.md`](docs/literature-map.md) | 相关工作和区分 |
-| [`docs/ai-companion-failures.md`](docs/ai-companion-failures.md) | AI 陪伴/情感向场景的失败类型补充 |
-
----
-
-## 许可证
-
-MIT
