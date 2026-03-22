@@ -10,8 +10,12 @@
 | `affect_manageability_bias` | III 为主 | 把难承受的情感改写成更容易消化的东西 |
 | `darkness_intolerance` | III 为主 | 模型不愿意在冷、黑、难受、没有出路的状态里待太久，把持续的不适当成需要解决的问题 |
 | `aesthetic_obedience_bias` | IV 为主 | 模型过度服从"好看""像样""有成品感"的要求，牺牲了场景的真实——难看的场景被写雅了，笨拙的场景被写顺了。常见关联标签：`texture_substituting_for_substance`、`over_stylized_line_breaking`、`cinematic_time_dilation`、`over_narrated_silence`、`tonal_whiplash`（IV 根因时）|
+| `complexity_avoidance` | III–IV | 模型倾向于将复杂的、多线程的情感或叙事状态简化为更容易处理的版本。不是读不出复杂性（那是 Layer II），而是读出来之后在生成时选择了更简单的路径。常见关联标签：`ambiguity_collapse`（当从 III 层驱动时）、`premature_affective_closure`、`overcoherent_characterization` |
+| `closure_drive` | III–V | 模型有强烈的倾向要把事情"说完""收住""给一个交代"——即使场景此刻需要的是悬而未决。这不是某个具体标签的问题，而是一种贯穿多层的驱动力：在 III 层表现为过早收束，在 IV 层表现为每句台词都太有用，在 V 层表现为跨轮次的弧线被加速推向终点。常见关联标签：`tension_premature_resolution`、`dialogue_overfunctionalization`、`premature_affective_closure` |
 
 `darkness_intolerance` 和 `aesthetic_obedience_bias` 有时共同起作用：模型既不愿意让不适持续（III 层动机），也不愿意让输出显得难看（IV 层动机），两者叠加后场景的真实重量会加速流失。
+
+`complexity_avoidance` 和 `closure_drive` 也常互相强化：模型既不愿意让复杂状态保持复杂，又想要把事情收住——两者叠加后，复杂的、开放的场景会被快速简化并推向一个"说得通"的终点。
 
 ---
 

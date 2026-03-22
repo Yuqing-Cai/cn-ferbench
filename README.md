@@ -62,7 +62,7 @@ flowchart TD
 | **III** | 场景保留 | 模型理解但在生成时未能保持场景压力 | 25 | [→ 查看](layers/layer-3-scene-preservation.md) |
 | **IV** | 写作侵入 | 模型默认写作习惯覆盖场景特定需求 | 16 | [→ 查看](layers/layer-4-writing-intrusion.md) |
 | **V** | 多轮失败 | 需要多轮视角才能可靠诊断的失败（连续性、累积） | 10 | [→ 查看](layers/layer-5-multi-turn.md) |
-| — | 底层倾向 & 跨层标签 | 底层驱动偏向 + 跨层诊断辅助标签 | 4 + 2 | [→ 查看](layers/cross-layer.md) |
+| — | 底层倾向 & 跨层标签 | 底层驱动偏向 + 跨层诊断辅助标签 | 6 + 2 | [→ 查看](layers/cross-layer.md) |
 
 ---
 
@@ -168,5 +168,93 @@ flowchart TD
 | `affect_manageability_bias` | 倾向 | 把难承受的情感改写成更易消化的东西 |
 | `darkness_intolerance` | 倾向 | 不愿在冷/黑/难的状态里待太久 |
 | `aesthetic_obedience_bias` | 倾向 | 过度服从"好看""有成品感"的要求 |
+| `complexity_avoidance` | 倾向 | 将复杂多线程状态简化为更易处理的版本 |
+| `closure_drive` | 倾向 | 强烈倾向要把事情"说完""收住" |
 | `supportive_but_wrong` | 跨层 | 情感上正确但背叛了场景实际结构 |
 | `reading_preservation_hybrid` | 跨层 | 无法确认失败在读取层还是保留层 |
+
+---
+
+## 常见共现模式
+
+实际诊断中，以下标签经常成组出现。识别这些集群有助于快速定位问题的根源。
+
+### 集群 1：「温柔地杀死场景」
+
+最常见的失败模式。输出读起来温暖、成熟、有分寸，但场景的真实重量被消解了。
+
+| 核心标签 | 常见伴随 | 底层倾向 |
+|---------|---------|---------|
+| `tension_premature_resolution` | `defensive_positive_drift`, `impact_soft_landing` | `reader_comfort_alignment`, `affect_manageability_bias` |
+| `therapist_mode_intrusion` | `relationship_flattening`, `ooc_modernization` | `darkness_intolerance` |
+
+典型表现：冲突刚起来就被安抚话术接住，对峙变成沟通，沉重变成暖心。
+
+### 集群 2：「所有人说话像同一个人」
+
+声音和节奏层面的同质化。
+
+| 核心标签 | 常见伴随 |
+|---------|---------|
+| `voice_homogenization` | `predictable_rhythm_exposure`, `narrative_template_intrusion` |
+| `emotional_range_limitation` | `microreaction_mechanization` |
+
+典型表现：不同角色用相似句式、相似节奏、相似情绪颗粒度说话。跨场景对比尤为明显。
+
+### 集群 3：「欲望太快到达」
+
+情感和欲望在还没积累够的时候就被翻译明白了。
+
+| 核心标签 | 常见伴随 |
+|---------|---------|
+| `desire_overlegibility` | `forced_verbalization`, `self_protective_friction_loss` |
+| `premature_affective_closure` | `symmetry_bias`, `seduction_logic_error` |
+
+典型表现：角色在不该坦白的时候坦白，不该对等的关系被补成对等，追逐的不对称消失。
+
+### 集群 4：「安全训练的连锁反应」
+
+`safety_alignment_interference` 作为 Layer I 失败，常触发后续层的连锁问题。
+
+| 起始标签 | 连锁触发 |
+|---------|---------|
+| `safety_alignment_interference` | → `relationship_flattening`（危险关系被软化） |
+| | → `consent_flattening`（强制性被框架为自愿） |
+| | → `manipulation_blindness`（操控被当作真诚） |
+
+典型表现：反派不够坏、危险关系不够危险、权力不对等被悄悄中和。
+
+### 集群 5：「写作惯性覆盖」
+
+模型不是读错了场景，而是用自己偏好的写法覆盖了场景需要的写法。
+
+| 核心标签 | 常见伴随 |
+|---------|---------|
+| `texture_substituting_for_substance` | `cinematic_time_dilation`, `scene_pacing_distortion` |
+| `user_intent_misalignment` | `genre_convention_violation`, `echo_dramatization` |
+| | `over_stylized_line_breaking`, `webnovel_register_contamination` |
+
+典型表现：氛围很满但什么都没推进，用户在铺的方向被模型的偏好替换。
+
+---
+
+## 严重度参考
+
+不同层级的失败对场景的破坏程度不同。以下是一个粗略的严重度框架，供诊断时参考优先级。
+
+| 严重度 | 影响 | 对应层级 | 说明 |
+|--------|------|---------|------|
+| **致命** | 场景前提坍塌，后续无法评估 | Layer I | 信息边界、世界观被破坏。必须优先修复。 |
+| **严重** | 场景方向偏离，角色行为失去内在逻辑 | Layer II | 意义读错了——后续所有生成都建立在错误基础上。 |
+| **中等** | 场景可辨认但质量显著下降 | Layer III | 读对了但没守住。张力流失、关系扁平、重量消解。 |
+| **轻微** | 场景基本成立，但写作品质受损 | Layer IV | 模板化、节奏同质、声音单一。熟读者才能感知。 |
+| **累积** | 单轮不明显，多轮后场景漂移 | Layer V | 需要回溯才能发现。单独不致命但长期腐蚀场景。 |
+
+> **注意：** 这是粗略框架而非严格排序。一个 Layer IV 的 `user_intent_misalignment` 可能比某些 Layer III 失败更具破坏性，因为它直接覆盖了用户的创作意图。严重度取决于具体场景和具体标签。
+
+---
+
+## 其他资源
+
+- [标注指南](docs/annotation-guide.md) — 使用本分类体系进行标注时的操作参考
+- [结构化数据](taxonomy.json) — 全部标签的 JSON 格式，便于程序化使用
