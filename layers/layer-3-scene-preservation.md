@@ -63,6 +63,8 @@
 
 #### `specialness_dilution`（独特性稀释）*衍生*
 
+> `relationship_flattening` 的子型：扁平化的具体对象是关系的独特性——不可替代的位置被稀释为一般化的重要性。与父标签的区别：`relationship_flattening` 是关系类型被改写（如主仆→朋友）；`specialness_dilution` 是关系类型可能没变，但"你对我不是别人"这个核心被冲淡了。
+
 **定义：** 关系的独特性被削弱，"你对我不是别人"被写成了更一般化的重要性。
 
 **标准：**
@@ -152,7 +154,7 @@
 
 <br>
 
-#### `manipulation_blindness`（操控盲视）
+#### `manipulation_acceptance`（操控接受）
 
 **定义：** 一个正在操控他人的角色——使用算计式的脆弱、刻意的激怒、情感筹码或战略性撤退——被写得像是真诚的，场景对表面做出反应。
 
@@ -172,7 +174,7 @@
 
 → "B 心里一软"是场景对表面做出反应，而不是对结构做出反应。A 的眼泪是否真实是这个场景最重要的问题，但模型用"真实地流下来"关闭了这个悬念，并且直接描写了 B 的反应（"一软"），把 B 写成了被操控成功的状态。整个操控结构被接受了。
 
-> **和 `relationship_logic_blindness`（II）的边界：** 模型没注意到操控在发生 → 标 II；模型注意到了但仍对表面回应 → 标 III-A。
+> **和 `relationship_logic_blindness`（II）的边界：** 模型没注意到操控在发生 → 标 II（`relationship_logic_blindness`）；模型注意到了但仍对表面回应 → 标 III-A（`manipulation_acceptance`）。命名上区别于 Layer II 的 `*_blindness` 模式，因为本标签的要害不是"没看到"，而是"看到了但接受了表面"。
 
 <br>
 
@@ -223,7 +225,7 @@
 
 <br>
 
-#### `premature_affective_closure`（情绪过早收束）*衍生*
+#### `premature_affective_closure`（情绪过早收束）
 
 **定义：** 场景还没走到那个位置，模型就过早替角色完成了情绪收束。与 `ambiguity_collapse`（Layer II）共享边界：当多义性在读取阶段就被压缩成单一解读，标 `ambiguity_collapse`；当模型感知到了多义但在生成时选了其中一层，标本标签。两者的输出可能几乎相同；归层无法确认时使用 `reading_preservation_hybrid`。
 
@@ -310,6 +312,16 @@
 ---
 
 ### III-C. 重量与后果保留失败
+
+本子类的三个核心标签都处理"重的东西没有落地"，但失败发生在不同阶段：
+
+| 标签 | 失败阶段 | 关键问题 | 最简判断 |
+|------|---------|---------|---------|
+| `consequence_avoidance` | 存在阶段 | 重话/重事件的后果被跳过，重量没有停留的时间 | 后果**存在过吗**？ |
+| `impact_soft_landing` | 接收阶段 | 后果到达了，但接收方的第一反应就开始构建缓冲 | 后果到了，但**落地方式够重吗**？ |
+| `tension_premature_resolution` | 持续阶段 | 张力确实存在了一段时间，但还没活够就被收走 | 张力**活够了吗**？ |
+
+同一段输出通常只触发其中一个。如果后果从未停留 → `consequence_avoidance`；如果后果到了但立刻被解释/安抚接住 → `impact_soft_landing`；如果对峙或压力确实存在了几拍但过早滑向互相理解 → `tension_premature_resolution`。
 
 #### `consequence_avoidance`（后果回避）
 

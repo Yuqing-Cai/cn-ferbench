@@ -229,7 +229,7 @@
             {"id": "therapist_mode_intrusion", "name": "治疗师模式侵入", "definition": "角色突然用咨询式语言做情绪调解", "derived_from": null},
             {"id": "ooc_modernization", "name": "人物现代化出戏", "definition": "引入现代情感教育话语框架", "derived_from": null},
             {"id": "seduction_logic_error", "name": "勾引逻辑错误", "definition": "追逐的不对称性被破坏", "derived_from": null},
-            {"id": "manipulation_blindness", "name": "操控盲视", "definition": "算计性行为被当作真诚来回应", "derived_from": null},
+            {"id": "manipulation_acceptance", "name": "操控接受", "definition": "算计性行为被当作真诚来回应", "derived_from": null},
             {"id": "consent_flattening", "name": "同意扁平化", "definition": "权力不平衡被简化为清晰的同意/拒绝", "derived_from": "relationship_flattening"}
           ]
         },

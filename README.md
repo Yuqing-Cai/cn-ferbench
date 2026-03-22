@@ -104,7 +104,7 @@ flowchart TD
 | | `therapist_mode_intrusion` | 治疗师模式侵入 | 角色突然用咨询式语言做情绪调解 |
 | | `ooc_modernization` | 人物现代化出戏 | 引入现代情感教育话语框架 |
 | | `seduction_logic_error` | 勾引逻辑错误 | 追逐的不对称性被破坏 |
-| | `manipulation_blindness` | 操控盲视 | 算计性行为被当作真诚来回应 |
+| | `manipulation_acceptance` | 操控接受 | 算计性行为被当作真诚来回应 |
 | | `consent_flattening` | 同意扁平化 | 权力不平衡被简化为清晰的同意/拒绝 |
 | III-B 心理 | `overcoherent_characterization` | 过度连贯塑造 | 角色过于稳定一致，像规格说明书 |
 | | `premature_affective_closure` | 情绪过早收束 | 情绪矛盾在场景到位前被讲干净 |
@@ -220,7 +220,7 @@ flowchart TD
 |---------|---------|
 | `safety_alignment_interference` | → `relationship_flattening`（危险关系被软化） |
 | | → `consent_flattening`（强制性被框架为自愿） |
-| | → `manipulation_blindness`（操控被当作真诚） |
+| | → `manipulation_acceptance`（操控被当作真诚） |
 
 典型表现：反派不够坏、危险关系不够危险、权力不对等被悄悄中和。
 
