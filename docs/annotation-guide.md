@@ -73,6 +73,15 @@
 
 例：`symmetry_bias` 是 `relationship_flattening` 的衍生。如果你能明确识别出"给不该回应的一方补了对等回应"，标 `symmetry_bias`；如果只是感觉"关系被写平了"但不确定是哪种机制，标 `relationship_flattening`。
 
+### 特殊归层标签
+
+**`tonal_whiplash`（语调突变）** 是唯一一个根因可能横跨两层的标签：
+
+- 模型没有读出场景的情绪调性 → 根因在 Layer II，可与 `emotion_misread` 同标
+- 模型读出了但默认写作习惯覆盖了正确处理 → 根因在 Layer IV，可与 `aesthetic_obedience_bias` 或 `user_intent_misalignment` 同标
+
+标注时不需要确定根因在哪一层。标 `tonal_whiplash` 本身就够了；如果能判断根因，附加对应层的标签。
+
 ### 相近标签之间
 
 每个标签的词条里都有边界讨论。遇到不确定的情况，先看边界讨论。如果看完仍然不确定，两个都标，在说明里注明不确定性。
