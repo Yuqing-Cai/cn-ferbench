@@ -164,6 +164,40 @@ function checkRequiredFields(taxonomy, schema) {
       }
     }
   }
+
+  // additionalProperties checks
+  function checkExtra(obj, defn, path) {
+    if (!defn || defn.additionalProperties !== false || !defn.properties) return;
+    const allowed = new Set(Object.keys(defn.properties));
+    for (const key of Object.keys(obj)) {
+      if (!allowed.has(key)) {
+        error(RULE, `${path} 存在多余字段: "${key}"（schema 不允许 additionalProperties）`);
+      }
+    }
+  }
+
+  // top-level
+  checkExtra(taxonomy, schema, "taxonomy");
+  // layers
+  for (const [i, layer] of taxonomy.layers.entries()) {
+    checkExtra(layer, layerDef, `layers[${i}]`);
+    const subDef = schema.$defs?.subcategory;
+    for (const [j, sub] of layer.subcategories.entries()) {
+      checkExtra(sub, subDef, `layers[${i}].subcategories[${j}]`);
+      for (const [k, label] of sub.labels.entries()) {
+        // skip extra keys added by collectAllLabels
+        checkExtra(label, labelDef, `标签 "${label.id}"`);
+      }
+    }
+  }
+  // tendencies
+  for (const [i, t] of taxonomy.underlying_tendencies.entries()) {
+    checkExtra(t, tendencyDef, `underlying_tendencies[${i}]`);
+  }
+  // cross_layer_tags
+  for (const [i, c] of taxonomy.cross_layer_tags.entries()) {
+    checkExtra(c, crossDef, `cross_layer_tags[${i}]`);
+  }
 }
 
 // ─── R2: total_labels count ────────────────────────────────
